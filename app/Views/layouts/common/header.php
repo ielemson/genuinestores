@@ -1,119 +1,109 @@
+
 <header class="section-header">
-<nav class="navbar d-none d-md-flex p-md-0 navbar-expand-sm navbar-light border-bottom">
-<div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTop4">
-    <ul class="navbar-nav mr-auto">
-    	<li><span class="nav-link">Hi, <a href="<?= base_url('Login/index'); ?>"> Sign in </a> or <a href="<?= base_url('Register/index'); ?>"> Register </a></span></li>
-		<li><a href="#" class="nav-link"> Deals </a></li>
-		<li><a href="#" class="nav-link"> Sell </a></li>
-		<li><a href="#" class="nav-link"> Help </a></li>
-    </ul>
-    <ul class="navbar-nav">
-		<li><a href="#" class="nav-link"> <img src="images/icons/flags/US.png" height="16"> Ship to </a></li>
-		<li class="nav-item dropdown">
-		 	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">   Watchlist </a>
-		    <ul class="dropdown-menu small">
-				<li><a class="dropdown-item" href="#">First item</a></li>
-				<li><a class="dropdown-item" href="#">Second item</a></li>
-				<li><a class="dropdown-item" href="#">Third item </a></li>
-		    </ul>
-		</li>
-		<li><a href="#" class="nav-link"> My shop </a></li>
-		<li><a href="#" class="nav-link"> <i class="fa fa-bell"></i> </a></li>
-		<li><a href="#" class="nav-link"> <i class="fa fa-shopping-cart"></i> </a></li>
-	</ul> <!-- list-inline //  -->
-  </div> <!-- navbar-collapse .// -->
-</div> <!-- container //  -->
-</nav>
-
-<div class="container">
+	
 <section class="header-main border-bottom">
-<div class="row row-sm">
-	<div class="col-6 col-sm col-md col-lg  flex-grow-0">
-		<a href="http://bootstrap-ecommerce.com/" class="brand-wrap">
-			<img class="logo" src="<?= base_url('images/logo3661.svg?v=2.0')?>">
-		</a> <!-- brand-wrap.// -->
-	</div>
-	<div class="col-6 col-sm col-md col-lg flex-md-grow-0">
-
-		<!-- mobile-only -->
-		<div class="d-md-none float-right">
-			<a href="#" class="btn btn-light"> <i class="fa fa-bell"></i> </a>
-			<a href="#" class="btn btn-light"> <i class="fa fa-user"></i> </a>
-			<a href="#" class="btn btn-light"> <i class="fa fa-shopping-cart"></i> 2 </a>
-		</div>
-		<!-- mobile-only //end  -->
-
-		<div class="category-wrap d-none dropdown d-md-inline-block">
-			<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">   Shop by 
-			</button>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Machinery / Mechanical Parts / Tools </a>
-				<a class="dropdown-item" href="#">Consumer Electronics / Home Appliances </a>
-				<a class="dropdown-item" href="#">Auto / Transportation</a>
-				<a class="dropdown-item" href="#">Apparel / Textiles / Timepieces </a>
-				<a class="dropdown-item" href="#">Home & Garden / Construction / Lights </a>
-				<a class="dropdown-item" href="#">Beauty & Personal Care / Health </a> 
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-2 col-lg-3 col-md-12">
+				<a href="<?= base_url('/'); ?>/" class="brand-wrap">
+					<img class="logo" src="<?= base_url('images/logo3661.png?v=2.0'); ?>">
+				</a> <!-- brand-wrap.// -->
 			</div>
-		</div>  <!-- category-wrap.// -->
-	</div> <!-- col.// -->
-	<div class="col-lg-6 col-xl col-md-5 col-sm-12 flex-grow-1">
-		<form action="#" class="search-header">
-			<div class="input-group">
-			    <input type="text" class="form-control" placeholder="Search">
-			    <select class="custom-select border-left"  name="category_name">
-						<option value="">All type</option><option value="codex">Special</option>
-						<option value="comments">Only best</option>
-						<option value="content">Latest</option>
-				</select>
-		    </div>
-		</form> <!-- search-wrap .end// -->
-	</div> <!-- col.// -->
-	<div class="col col-lg col-md flex-grow-0">
-	    <button class="btn btn-block btn-primary" type="submit"> Search </button>
-	</div>
-	<div class="col col-lg col-md flex-grow-0">
-	    <button class="btn btn-block btn-light" type="submit"> Advanced </button>
-	</div>
-</div> <!-- row.// -->
+			<div class="col-xl-6 col-lg-5 col-md-6">
+				<form action="#" class="search-header">
+					<div class="input-group w-100">
+						<select class="custom-select border-right"  name="category_name">
+								<option value="">All type</option><option value="codex">Special</option>
+								<option value="comments">Only best</option>
+								<option value="content">Latest</option>
+						</select>
+					    <input type="text" class="form-control" placeholder="Search">
+					    
+					    <div class="input-group-append">
+					      <button class="btn btn-primary" type="submit">
+					        <i class="fa fa-search"></i> Search
+					      </button>
+					    </div>
+				    </div>
+				</form> <!-- search-wrap .end// -->
+			</div> <!-- col.// -->
+			<div class="col-xl-4 col-lg-4 col-md-6">
+				<div class="widgets-wrap float-md-right">
+					<div class="widget-header mr-3">
+						<a href="#" class="widget-view">
+							<div class="icon-area">
+								<i class="fa fa-user"></i>
+								<span class="notify">3</span>
+							</div>
+							<small class="text"> My profile </small>
+						</a>
+					</div>
+					<div class="widget-header mr-3">
+						<a href="#" class="widget-view">
+							<div class="icon-area">
+								<i class="fa fa-comment-dots"></i>
+								<span class="notify">1</span>
+							</div>
+							<small class="text"> Message </small>
+						</a>
+					</div>
+					<div class="widget-header mr-3">
+						<a href="#" class="widget-view">
+							<div class="icon-area">
+								<i class="fa fa-store"></i>
+							</div>
+							<small class="text"> Orders </small>
+						</a>
+					</div>
+					<div class="widget-header">
+						<a href="#" class="widget-view">
+							<div class="icon-area">
+								<i class="fa fa-shopping-cart"></i>
+							</div>
+							<small class="text"> Cart </small>
+						</a>
+					</div>
+				</div> <!-- widgets-wrap.// -->
+			</div> <!-- col.// -->
+		</div> <!-- row.// -->
+	</div> <!-- container.// -->
 </section> <!-- header-main .// -->
 
 
-<nav class="navbar navbar-main navbar-expand pl-0">
-      <ul class="navbar-nav flex-wrap">
-      	<li class="nav-item">
-           <a class="nav-link" href="<?= base_url('/'); ?>">Home</a>
-		</li>
-	
-        <li class="nav-item">
-          <a class="nav-link" href="#">Electronics</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Fashion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Beauty</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Motors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gardening</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Deals</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Under $10</a>
-        </li>
-      </ul>
-</nav> <!-- navbar-main  .// -->
 
-</div> <!-- container.// -->
-</header> <!-- section-header.// -->
+<nav class="navbar navbar-main navbar-expand-lg border-bottom">
+<div class="container">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="main_nav">
+	<ul class="navbar-nav">
+		<li class="nav-item dropdown">
+			<a class="nav-link "  href="<?= base_url('/'); ?>"> <i class="fa fa-home text-muted mr-2"></i> Home </a>
+			
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Categories</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="#">About</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" href="#">Contact</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
+			<div class="dropdown-menu dropdown-menu-right">
+			<a class="dropdown-item" href="<?= base_url('Login/index'); ?>">Login</a>
+			<a class="dropdown-item" href="<?= base_url('Register/index'); ?>">Register</a>
+			</div>
+		</li>
+	</ul>
+	
+	</div> <!-- collapse .// -->
+</div> <!-- container .// -->
+</nav>
+
+</header>
+ <!-- section-header.// -->
