@@ -3,16 +3,18 @@
 
 <!-- ============================ COMPONENT LOGIN   ================================= -->
 	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+  <?= $this->include('common/alerts'); ?>
       <div class="card-body">
       <h4 class="card-title mb-4">Sign in</h4>
-      <form>
+      <form action="<?= base_url('login'); ?>" method="POST" accept-charset="UTF-8">
+            <?= csrf_field() ?>
       	  <a href="#" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp  Sign in with Facebook</a>
       	  <a href="#" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp  Sign in with Google</a>
           <div class="form-group">
-			 <input name="" class="form-control" placeholder="Username" type="text">
+			 <input name="email" class="form-control" placeholder="Email" type="email" name="email" value="<?= old('email') ?>">
           </div> <!-- form-group// -->
           <div class="form-group">
-			<input name="" class="form-control" placeholder="Password" type="password">
+			<input name="password" class="form-control" placeholder="Password" type="password" name="password">
           </div> <!-- form-group// -->
           
           <div class="form-group">
@@ -26,7 +28,7 @@
       </div> <!-- card-body.// -->
     </div> <!-- card .// -->
 
-     <p class="text-center mt-4">Don't have account? <a href="#">Sign up</a></p>
+     <p class="text-center mt-4">Don't have account? <a href="<?=base_url("register")?>">Sign up</a></p>
      <br><br>
 <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 

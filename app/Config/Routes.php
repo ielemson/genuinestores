@@ -33,9 +33,46 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 // COMMON ROUTES
-$routes->get('/', 'Home::index');
-$routes->get('login', 'Login::index');
-$routes->get('register', 'Register::index');
+// $routes->get('/', 'Home::index');
+$routes->get('/', 'HomeController::index');
+
+
+
+
+$routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
+	// Registration
+	$routes->get('register', 'Auth\AuthController::getRegister',['as'=>'register']);
+    $routes->post('create-account', 'Auth\AuthController::attemptRegister');
+
+	// Activation
+	// $routes->get('activate-account', 'Auth\RegistrationController::activateAccount', ['as' => 'activate-account']);
+
+	// Login-out
+    $routes->get('login', 'Auth\AuthController::getLogin',['as'=>'login']);
+    $routes->post('login', 'Auth\AuthController::attemptLogin');
+	// $routes->post('login', 'Auth\LoginController::attemptLogin');
+    $routes->get('logout', 'Auth\AuthController::logout');
+
+
+  
+
+
+});
+$routes->group('', ['namespace' => 'App\Controllers\Admin'], function($routes) {
+	// Registration
+	$routes->get('dashboard', 'AdminController::dashboard',['as'=>'dashboard']);
+  });
+
+
+// * --------------------------------------------------------------------
+// * ADMIN ROUTING STARTS HERE
+// * --------------------------------------------------------------------
+
+
+
+// * --------------------------------------------------------------------
+// * ADMIN ROUTING ENDS HERE
+// * --------------------------------------------------------------------
 
 /*
  * --------------------------------------------------------------------

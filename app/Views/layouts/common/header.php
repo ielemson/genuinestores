@@ -95,8 +95,8 @@
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
 			<div class="dropdown-menu dropdown-menu-right">
-			<a class="dropdown-item" href="<?= base_url('Login/index'); ?>">Login</a>
-			<a class="dropdown-item" href="<?= base_url('Register/index'); ?>">Register</a>
+			<a class="dropdown-item" href="<?= base_url('login'); ?>">Login</a>
+			<a class="dropdown-item" href="<?= base_url('register'); ?>">Register</a>
 			</div>
 		</li>
 	</ul>

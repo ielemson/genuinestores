@@ -3,42 +3,44 @@
 
 <!-- ============================ COMPONENT REGISTER   ================================= -->
 	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+	<?= $this->include('common/alerts'); ?>
       <article class="card-body">
 		<header class="mb-4"><h4 class="card-title">Sign up</h4></header>
-		<form>
+		<form action="<?= base_url('create-account'); ?>" method="POST" accept-charset="UTF-8" >
+            <?= csrf_field() ?>
 				<div class="form-row">
 					<div class="col form-group">
 						<label>First name</label>
-					  	<input type="text" class="form-control" placeholder="">
+					  	<input type="text" class="form-control" name="firstname" value="<?= old('firstname') ?>">
 					</div> <!-- form-group end.// -->
 					<div class="col form-group">
 						<label>Last name</label>
-					  	<input type="text" class="form-control" placeholder="">
+					  	<input type="text" class="form-control" name="lastname" value="<?= old('lastname') ?>">
 					</div> <!-- form-group end.// -->
 				</div> <!-- form-row end.// -->
 				<div class="form-group">
 					<label>Email</label>
-					<input type="email" class="form-control" placeholder="">
+					<input type="email" class="form-control" name="email" value="<?= old('email') ?>">
 					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div> <!-- form-group end.// -->
 				<div class="form-group">
 					<label class="custom-control custom-radio custom-control-inline">
-					  <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
+					  <input class="custom-control-input" checked="" type="radio" name="gender" value="male" >
 					  <span class="custom-control-label"> Male </span>
 					</label>
 					<label class="custom-control custom-radio custom-control-inline">
-					  <input class="custom-control-input" type="radio" name="gender" value="option2">
+					  <input class="custom-control-input" type="radio" name="gender" value="female">
 					  <span class="custom-control-label"> Female </span>
 					</label>
 				</div> <!-- form-group end.// -->
 				<div class="form-row">
 					<div class="form-group col-md-6">
 					  <label>City</label>
-					  <input type="text" class="form-control">
+					  <input type="text" class="form-control" name="city" value="<?= old("city") ?>">
 					</div> <!-- form-group end.// -->
 					<div class="form-group col-md-6">
 					  <label>Country</label>
-					  <select id="inputState" class="form-control">
+					  <select id="inputState" class="form-control" name="country">
 					    <option> Choose...</option>
 					      <option>Uzbekistan</option>
 					      <option>Russia</option>
@@ -51,11 +53,11 @@
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label>Create password</label>
-					    <input class="form-control" type="password">
+					    <input class="form-control" type="password" name="password">
 					</div> <!-- form-group end.// --> 
 					<div class="form-group col-md-6">
 						<label>Repeat password</label>
-					    <input class="form-control" type="password">
+					    <input class="form-control" type="password" name="password_confirm">
 					</div> <!-- form-group end.// -->  
 				</div>
 			    <div class="form-group">
@@ -67,7 +69,7 @@
 			</form>
 		</article><!-- card-body.// -->
     </div> <!-- card .// -->
-    <p class="text-center mt-4">Have an account? <a href="#">Log In</a></p>
+    <p class="text-center mt-4">Have an account? <a href="<?= base_url("login")?>">Log In</a></p>
     <br><br>
 <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
 
