@@ -107,14 +107,29 @@
         <div class="container">
           <ul class="nav page-navigation">
             <li class="nav-item">
-              <a href="index.html" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title">DASHBOARD</span></a>
+              <a href="<?=base_url("dashboard")?>" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title">DASHBOARD</span></a>
             </li>
             <li class="nav-item">
-              <a href="pages/widgets/widgets.html" class="nav-link"><i class="link-icon mdi mdi-apple-safari"></i><span class="menu-title">WIDGETS</span></a>
+              <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">PRODUCT</span><i class="menu-arrow"></i></a>
+              <div class="submenu">
+                <ul class="submenu-item">
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/product/create")?>">CREATE</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/products")?>">VIEW</a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li> -->
+                </ul>
+              </div>
             </li>
-            <li class="nav-item mega-menu">
-              <a href="#" class="nav-link"><i class="link-icon mdi mdi-atom"></i><span class="menu-title">UI ELEMENTS</span><i class="menu-arrow"></i></a>
-             
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">CATEGORY</span><i class="menu-arrow"></i></a>
+              <div class="submenu">
+                <ul class="submenu-item">
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/category/create")?>">CREATE</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/categories")?>">VIEW</a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li> -->
+                </ul>
+              </div>
             </li>
             <li class="nav-item mega-menu">
               <a href="#" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">PAGES</span><i class="menu-arrow"></i></a>

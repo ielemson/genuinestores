@@ -65,7 +65,7 @@ class AuthController extends BaseController
 		
 		if ( is_null($user) || ! password_verify($this->request->getPost('password'), $user['password_hash']) ) 
 		{
-			return redirect()->to('login')->withInput()->with('error', lang('Auth.wrongCredentials'));
+			return redirect()->to('login')->withInput()->with('error', "invalid user credentials");
 		}
 
 		// check activation
@@ -151,6 +151,7 @@ class AuthController extends BaseController
             'gender'         	=> $this->request->getPost('gender'),
             'country'         	=> $this->request->getPost('country'),
             'city'         	=> $this->request->getPost('city'),
+            'address'         	=> $this->request->getPost('address'),
             'password'     		=> $this->request->getPost('password'),
             'password_confirm'	=> $this->request->getPost('password_confirm'),
             // 'activate_hash' 	=> random_string('alnum', 32)

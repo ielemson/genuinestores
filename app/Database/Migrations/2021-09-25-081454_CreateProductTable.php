@@ -4,55 +4,46 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Users extends Migration
+class CreateProductTable extends Migration
 {
-   
-        public function up()
-	{
-		$this->forge->addField([
+    public function up()
+    {
+        $this->forge->addField([
 			'id'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,
 				'unsigned'       => true,
 				'auto_increment' => true,
 			],
-			'firstname'       => [
+			'name'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
-			'lastname'       => [
+			'slug'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
-			'gender'       => [
+			'price'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '12',
 			],
-			'email' => [
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			],
-			'country' => [
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			],
-			'city' => [
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			],
-			'address' => [
-				'type' => 'TEXT',
-				'constraint' => '255',
-			],
-			'password_hash' => [
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			],
-			'role' => [
+			'cat_id' => [
 				'type'           => 'INT',
-				'constraint'     => 5,
-				'unsigned'       => true,
+				'constraint'     => 11,
 			],
+			'status' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255',
+			],
+			'image' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255',
+			],
+			'description' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255',
+			],
+			
 			'created_at' => [
 				'type'           => 'datetime'
 			],
@@ -61,15 +52,11 @@ class Users extends Migration
 			],
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('users');
-	}
+		$this->forge->createTable('products');
+    }
 
-	public function down()
-	{
-		$this->forge->dropTable('users');
-	}
-
-
-    
-
+    public function down()
+    {
+        $this->forge->dropTable('products');
+    }
 }

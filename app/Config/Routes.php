@@ -59,8 +59,17 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 
 });
 $routes->group('', ['namespace' => 'App\Controllers\Admin'], function($routes) {
-	// Registration
+
+	// ADMIN DASHBOARD
 	$routes->get('dashboard', 'AdminController::dashboard',['as'=>'dashboard']);
+
+	// PRODUCT ROUTE
+	$routes->get('dashboard/product/create', 'ProductController::createProduct');
+	$routes->get('dashboard/products', 'ProductController::products');
+
+	// CATEGRY ROUTE
+	$routes->get('dashboard/category/create', 'CategoryController::createCategory');
+	$routes->get('dashboard/categories', 'CategoryController::categories');
   });
 
 
