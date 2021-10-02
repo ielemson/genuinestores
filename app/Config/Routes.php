@@ -66,11 +66,25 @@ $routes->group('', ['namespace' => 'App\Controllers\Admin'], function($routes) {
 	// PRODUCT ROUTE
 	$routes->get('dashboard/product/create', 'ProductController::createProduct');
 	$routes->get('dashboard/products', 'ProductController::products');
+	$routes->post('dashboard/product', 'ProductController::store');
+	$routes->get('dashboard/product/edit/(:num)', 'ProductController::edit/$1');
 
 	// CATEGRY ROUTE
 	$routes->get('dashboard/category/create', 'CategoryController::createCategory');
+	$routes->get('dashboard/category/edit/(:num)', 'CategoryController::edit/$1');
 	$routes->get('dashboard/categories', 'CategoryController::categories');
+	$routes->post('dashboard/category', 'CategoryController::storeCategory');
+	
   });
+
+
+$routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
+
+	$routes->get('product/(:any)', 'ProductController::product/$1');
+	
+  });
+
+
 
 
 // * --------------------------------------------------------------------

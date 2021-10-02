@@ -83,8 +83,17 @@
 			<a class="nav-link "  href="<?= base_url('/'); ?>"> <i class="fa fa-home text-muted mr-2"></i> Home </a>
 			
 		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">Categories</a>
+		<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Category</a>
+		<?php
+		if ($categories) {?>
+		<div class="dropdown-menu">
+		<?php foreach ($categories as $key => $category) {?>
+			<a class="dropdown-item" href="<?= base_url('product/category/'.$category['slug']);?>"><?=$category['name']?></a>
+			<?php  }?>
+			</div>
+		<?php } ?>
+			<!-- <a class="nav-link" href="#">Categories</a> -->
 		</li>
 		<li class="nav-item">
 		<a class="nav-link" href="#">About</a>
@@ -94,7 +103,7 @@
 		</li>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
-			<div class="dropdown-menu dropdown-menu-right">
+			<div class="dropdown-menu ">
 			<a class="dropdown-item" href="<?= base_url('login'); ?>">Login</a>
 			<a class="dropdown-item" href="<?= base_url('register'); ?>">Register</a>
 			</div>

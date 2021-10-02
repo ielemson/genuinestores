@@ -14,10 +14,10 @@ class Product extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['name','slug','price','cat_id','status','image'];
+    protected $allowedFields        = ['name','slug','cprice','sprice','qty','cat_id','status','description','cover_img','title'];
 
     // Dates
-    protected $useTimestamps        = false;
+    protected $useTimestamps        = true;
     protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';
@@ -25,6 +25,21 @@ class Product extends Model
 
     // Validation
     protected $validationRules      = [];
+     	// we need different rules for registration, account update, etc
+	protected $dynamicRules = [
+		'storeProducts' => [
+            'name' => 'required|min_length[5]|max_length[255]',
+            'title' => 'required|min_length[10]|max_length[50]',
+            // 'images[]' =>'required',
+            'cprice' => 'required',
+            'sprice' => 'required',
+            'qty' => 'required',
+            'description' => 'required|min_length[3]|max_length[255]',
+            'status'  => 'required',
+            'cat_id'  => 'required',
+		],
+	
+	];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
@@ -39,4 +54,10 @@ class Product extends Model
     protected $afterFind            = [];
     protected $beforeDelete         = [];
     protected $afterDelete          = [];
+
+
+    public function getRule(string $rule)
+	{
+		return $this->dynamicRules[$rule];
+	}
 }

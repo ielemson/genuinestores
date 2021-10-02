@@ -24,6 +24,11 @@ class CreateCategoryTable extends Migration
 				'constraint' => '255',
 			],
 			
+			'status'       => [
+				'type'           => 'INT',
+				'constraint'     => 11,
+			],
+			
 			'created_at' => [
 				'type'           => 'datetime'
 			],

@@ -26,6 +26,7 @@ class Users extends Model
     // Validation
     protected $validationRules      = [];
 
+	
     	// we need different rules for registration, account update, etc
 	protected $dynamicRules = [
 		'registration' => [

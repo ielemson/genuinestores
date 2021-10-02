@@ -23,7 +23,15 @@ class CreateProductTable extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
-			'price'       => [
+			'cprice'       => [
+				'type'       => 'VARCHAR',
+				'constraint' => '12',
+			],
+			'sprice'       => [
+				'type'       => 'VARCHAR',
+				'constraint' => '12',
+			],
+			'qty'       => [
 				'type'       => 'VARCHAR',
 				'constraint' => '12',
 			],
@@ -35,7 +43,7 @@ class CreateProductTable extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '255',
 			],
-			'image' => [
+			'coverimage' => [
 				'type' => 'VARCHAR',
 				'constraint' => '255',
 			],

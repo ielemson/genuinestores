@@ -3,19 +3,54 @@
 <!-- MAIN CONTENT -->
 <?= $this->section('content'); ?>
 <div class="container">
-<div class="col-md-4">
+<div class="col-md-12">
 <div class="card card-post card-round">
-<img class="card-img-top" src="<?= base_url("admin/images/products/product-1.jpg")?>" alt="Card image cap">
+<!-- <img class="card-img-top" src="<?= base_url("admin/images/products/product-1.jpg")?>" alt="Card image cap"> -->
 <div class="card-body">
-<div class="separator-solid"></div>
+<div class="col-12">
+                    <div class="table-responsive">
+                      <table id="order-listing" class="table">
+                        <thead>
+                          <tr>
+                              <th>S/N #</th>
+                              <th>Category Name</th>
+                              <th>Category Slug</th>
+                              <th>Category Status</th>
+                              <th>Edit</th>
+                              <th>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php if($categories): ?>
+                         <?php foreach($categories as $category): ?>
+                          <tr>
+                              <td>1</td>
+                              <td><?= $category['name']; ?></td>
+                              <td><?= $category['slug']; ?></td>
+                              <td>
+                                <?php
+                                if($category['status'] == 1){?>
+                                <span class="badge badge-success">active</span>
+                                <?php } else { ?>
+                                  <span class="badge badge-danger">inactive</span>
+                                <?php } ?>
 
-<h3 class="card-title">
-<a href="#">
-Best Design Resources This Week
-</a>
-</h3>
-<a href="#" class="btn btn-primary btn-sm">Edit</a>
-<a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                              <td>
+                              <a href="<?= base_url('dashboard/category/edit/'.$category['id']);?>" class="btn btn-outline-primary"><i class="fa fa-pencil"></i></a>
+                              </td>
+                              <td>
+                                <a href="<?= base_url('dashboard/category/delete/'.$category['id']);?>" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                              </td>
+                          </tr>
+                       
+                          <?php endforeach; ?>
+                          <?php endif; ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
 </div>
 </div>
 </div>

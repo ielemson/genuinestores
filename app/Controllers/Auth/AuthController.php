@@ -36,9 +36,8 @@ class AuthController extends BaseController
             }
 
             $data =  [
-            'title'         => 'Dashboard Page'
+            'title'         => ':: Login'
             ];
-
 
         return view('common/login');
     }
@@ -127,7 +126,7 @@ class AuthController extends BaseController
 
 
         $data =  [
-        'title'         => 'Dashboard Page'
+        'title'         => ':: Register'
         ];
 
 
