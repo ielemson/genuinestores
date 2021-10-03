@@ -16,8 +16,14 @@ class ProductController extends BaseController
     {
         $this->db = db_connect(); // Loading database
         // OR $this->db = \Config\Database::connect();
+
+        if (session()->get('role') != "admin") {
+            echo 'Access denied';
+            exit;
+        }
     }
 
+    
 
 
     public function createProduct()

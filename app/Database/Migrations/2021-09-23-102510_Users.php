@@ -44,7 +44,7 @@ class Users extends Migration
 				'type' => 'TEXT',
 				'constraint' => '255',
 			],
-			'password_hash' => [
+			'password' => [
 				'type' => 'VARCHAR',
 				'constraint' => '255',
 			],

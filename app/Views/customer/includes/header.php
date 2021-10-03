@@ -29,7 +29,6 @@
 			</div> <!-- col.// -->
 			<div class="col-xl-4 col-lg-4 col-md-6">
 				<div class="widgets-wrap float-md-right">
-				<?php if (isset($_SESSION['isLoggedIn'])) { ?>
 					<div class="widget-header mr-3">
 						<a href="#" class="widget-view">
 							<div class="icon-area">
@@ -39,7 +38,6 @@
 							<small class="text"> My profile </small>
 						</a>
 					</div>
-
 					<div class="widget-header mr-3">
 						<a href="#" class="widget-view">
 							<div class="icon-area">
@@ -49,7 +47,6 @@
 							<small class="text"> Message </small>
 						</a>
 					</div>
-
 					<div class="widget-header mr-3">
 						<a href="#" class="widget-view">
 							<div class="icon-area">
@@ -58,8 +55,6 @@
 							<small class="text"> Orders </small>
 						</a>
 					</div>
-					<?php } ?>
-
 					<div class="widget-header">
 						<a href="#" class="widget-view">
 							<div class="icon-area">
@@ -88,18 +83,7 @@
 			<a class="nav-link "  href="<?= base_url('/'); ?>"> <i class="fa fa-home text-muted mr-2"></i> Home </a>
 			
 		</li>
-		<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Category</a>
-		<?php
-		if ($categories) {?>
-		<div class="dropdown-menu">
-		<?php foreach ($categories as $key => $category) {?>
-			<a class="dropdown-item" href="<?= base_url('product/category/'.$category['slug']);?>"><?=$category['name']?></a>
-			<?php  }?>
-			</div>
-		<?php } ?>
-			<!-- <a class="nav-link" href="#">Categories</a> -->
-		</li>
+	
 		<li class="nav-item">
 		<a class="nav-link" href="#">About</a>
 		</li>
@@ -109,18 +93,19 @@
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
 			<div class="dropdown-menu ">
-
-			<?php if (isset($_SESSION['isLoggedIn'])) { ?>
-
+				<?php
+				if ($user['isLoggedIn'] == true) {
+				?>
 				<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
-
-				<?php }else{ ?>
-
+				<?php
+				}else{
+				?>
 				<a class="dropdown-item" href="<?= base_url('login'); ?>">Login</a>
 			<a class="dropdown-item" href="<?= base_url('register'); ?>">Register</a>
 				<?php
 				}
 				?>
+			
 			</div>
 		</li>
 	</ul>

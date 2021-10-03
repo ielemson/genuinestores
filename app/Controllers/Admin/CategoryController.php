@@ -7,6 +7,16 @@ use App\Models\Category;
 
 class CategoryController extends BaseController
 {
+
+    public function __construct()
+    {
+        if (session()->get('role') != "admin") {
+            echo 'Access denied';
+            exit;
+        }
+    }
+
+    
     public function createCategory()
     {
         return view('admin/category/create');

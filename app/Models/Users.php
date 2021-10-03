@@ -14,7 +14,7 @@ class Users extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['firstname','lastname','email','city','country','gender','password','password_confirm','address'];
+    protected $allowedFields        = ['firstname','lastname','email','city','country','gender','password','address','role'];
 
     // Dates
     protected $useTimestamps        = true;
@@ -34,33 +34,13 @@ class Users extends Model
 			'lastname' 			=> 'required|alpha_space|min_length[2]',
 			'city' 				=> 'required|alpha_space|min_length[2]',
 			'country' 				=> 'required|alpha_space|min_length[2]',
-			'address' 				=> 'required|min_length[20]',
+			'address' 				=> 'required|min_length[5]',
 			'gender' 				=> 'required|alpha_space|min_length[2]',
 			'email' 			=> 'required|valid_email|is_unique[users.email,id,{id}]',
 			'password'			=> 'required|min_length[5]',
 			'password_confirm'	=> 'matches[password]'
 		],
-		'updateAccount' => [
-			'id'	=> 'required|is_natural',
-			'name'	=> 'required|alpha_space|min_length[2]'
-		],
-		'updateProfile' => [
-			'id'	=> 'required|is_natural',
-			'name'	=> 'required|alpha_space|min_length[2]',
-			'firstname'	=> 'required|alpha_space|min_length[2]',
-			'lastname'	=> 'required|alpha_space|min_length[2]',
-			'email'	=> 'required|valid_email|is_unique[users.email,id,{id}]',
-			'active'	=> 'required|integer',
-		],
-		'changeEmail' => [
-			'id'			=> 'required|is_natural',
-			'new_email'		=> 'required|valid_email|is_unique[users.email]',
-			'activate_hash'	=> 'required'
-		],
-		'enableuser' => [
-			'id'	=> 'required|is_natural',
-			'active'	=> 'required|integer'
-		]
+	
 	];
 
 
@@ -89,8 +69,8 @@ class Users extends Model
 	{
 		if (! isset($data['data']['password'])) return $data;
 
-		$data['data']['password_hash'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
-		unset($data['data']['password']);
+		$data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
+		// unset($data['data']['password']);
 		unset($data['data']['password_confirm']);
 
 		return $data;

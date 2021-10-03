@@ -49,16 +49,18 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 
 	// Login-out
     $routes->get('login', 'Auth\AuthController::getLogin',['as'=>'login']);
+	// Admin Login Route
+    $routes->get('admin/login', 'Auth\AuthController::getAdminLogin');
+    $routes->post('admin/login', 'Auth\AuthController::attemptAdminLogin');
     $routes->post('login', 'Auth\AuthController::attemptLogin');
 	// $routes->post('login', 'Auth\LoginController::attemptLogin');
     $routes->get('logout', 'Auth\AuthController::logout');
 
 
-  
 
 
 });
-$routes->group('', ['namespace' => 'App\Controllers\Admin'], function($routes) {
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "auth"], function($routes) {
 
 	// ADMIN DASHBOARD
 	$routes->get('dashboard', 'AdminController::dashboard',['as'=>'dashboard']);
@@ -81,6 +83,13 @@ $routes->group('', ['namespace' => 'App\Controllers\Admin'], function($routes) {
 $routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
 
 	$routes->get('product/(:any)', 'ProductController::product/$1');
+	
+  });
+
+$routes->group('customer', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
+
+	// CUSTOMER DASHBOARD
+	$routes->get('dashboard', 'CustomerController::dashboard');
 	
   });
 
