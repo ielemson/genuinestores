@@ -30,6 +30,7 @@
 			<div class="col-xl-4 col-lg-4 col-md-6">
 				<div class="widgets-wrap float-md-right">
 				<?php if (isset($_SESSION['isLoggedIn'])) { ?>
+					
 					<div class="widget-header mr-3">
 						<a href="#" class="widget-view">
 							<div class="icon-area">
@@ -110,17 +111,23 @@
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
 			<div class="dropdown-menu ">
 
-			<?php if (isset($_SESSION['isLoggedIn'])) { ?>
+			<?php if ( isset($_SESSION['role']) && $_SESSION['role'] == "admin") {?>
 
-				<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
+						<a class="dropdown-item" href="<?= base_url('admin/dashboard'); ?>">Admin</a>
+						<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
 
-				<?php }else{ ?>
+						<?php }elseif(isset($_SESSION["role"]) && $_SESSION["role"] == "customer"){ ?>
 
-				<a class="dropdown-item" href="<?= base_url('login'); ?>">Login</a>
-			<a class="dropdown-item" href="<?= base_url('register'); ?>">Register</a>
-				<?php
-				}
-				?>
+							<a class="dropdown-item" href="<?= base_url('customer/dashboard'); ?>">Customer</a>
+							<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
+						<?php }else{ ?>
+
+							<a class="dropdown-item" href="<?= base_url('login'); ?>">Login</a>
+							<a class="dropdown-item" href="<?= base_url('register'); ?>">Register</a>
+						<?php } ?>
+					
+
+					
 			</div>
 		</li>
 	</ul>

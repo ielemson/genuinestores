@@ -93,9 +93,9 @@
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
 			<div class="dropdown-menu ">
-				<?php
-				if ($user['isLoggedIn'] == true) {
-				?>
+	
+				<?php if (isset($_SESSION['isLoggedIn'])) { ?>
+
 				<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
 				<?php
 				}else{

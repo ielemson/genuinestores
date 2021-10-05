@@ -11,17 +11,16 @@ class CustomerController extends BaseController
         // start session
 		$this->session = Services::session();
 
-
-        if (session()->get('role') != "customer") {
-            echo 'Access denied';
-            exit;
-        }
+        // if (session()->get('role') != "customer") {
+        //     echo 'Access denied';
+        //     exit;
+        // }
     }
+
 
 
     public function dashboard()
     {
-      
         
         return view('customer/dashboard', [
             'user' => $this->session->user, 

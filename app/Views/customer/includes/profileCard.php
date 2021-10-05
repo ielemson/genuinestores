@@ -6,8 +6,8 @@
 							<img class="rounded-circle img-sm border" src="images/avatars/avatar3.jpg">
 						</div>
 						<div class="text">
-							<strong> <?= $user['firstname']?> <?= $user['lastname']?> </strong> <br> 
-							<p class="mb-2"> <?= $user['email']?> </p> 
+							<strong> <?= $_SESSION['firstname']?> <?= $_SESSION['lastname']?> </strong> <br> 
+							<p class="mb-2"> <?= $_SESSION['email']?> </p> 
 							<a href="#" class="btn btn-light btn-sm">Edit</a>
 						</div>
 				</figure>

@@ -23,7 +23,6 @@ class AuthController extends BaseController
 		$this->session = Services::session();
 	}
 
-
     
     // * --------------------------------------------------------------------
     // * CUSTOMER LOGIN MODEL STARTS HERE
@@ -74,29 +73,37 @@ class AuthController extends BaseController
 			return redirect()->to(base_url('login'))->withInput()->with('error', "invalid user credentials");
 		}
 
-		
-		// login OK, save user data to session
-		    // Stroing session values
-            // $this->setUserSession($user);
-            $this->session->set('isLoggedIn', true);
+          // Stroing session values
+          $this->setUserSession($user);
 
-            $this->session->set('user', [
-            'id' 			=> $user["id"],
-            'firstname' 	=> $user["firstname"],
-            'lastname' 		=> $user["lastname"],
-            'email' 		=> $user["email"],
-            'isLoggedIn' 	=> true,
-            'role' 	=> $user["role"]
-            ]);
-            // Redirecting to dashboard after login
-            if($user['role'] == "customer"){
-                return redirect()->to(base_url('customer/dashboard'));
-            }else{
-                return redirect()->to(base_url('login'))->withInput()->with('error', "invalid user authorization");
-            }
-          
-       
+          // Redirecting to dashboard after login
+        //   dd($user);
+
+          if($user['role'] == "customer"){
+
+              return redirect()->to(base_url('customer/dashboard'));
+
+          }else{
+            return redirect()->to(base_url('logout'));
+          }
+		   
 	}
+
+
+    //  private function setCustomerSession($user)
+    // {
+    //     $data = [
+    //         'id' => $user['id'],
+    //         'firstname' => $user['firstname'],
+    //         'lastname' => $user['lastname'],
+    //         'email' => $user['email'],
+    //         'isLoggedIn' => true,
+    //         "role" => $user['role'],
+    //     ];
+
+    //     session()->set($data);
+    //     return true;
+    // }
 
     // * --------------------------------------------------------------------
     // * CUSTOMER LOGIN MODEL END HERE
@@ -177,10 +184,6 @@ class AuthController extends BaseController
 
 
 
-
-
-
-
     // * --------------------------------------------------------------------
     // * ADMIN LOGIN MODEL STARTS HERE
     // * --------------------------------------------------------------------
@@ -216,14 +219,19 @@ class AuthController extends BaseController
                             return redirect()->to(base_url('admin/login'))->withInput()->with('error', "invalid user credentials");
                         }
     
-                    // Stroing session values
-                    $this->setUserSession($user);
+                    
     
                     // Redirecting to dashboard after login
                     if($user['role'] == "admin"){
-    
+                        
+                        // Stroing session values
+                       $this->setUserSession($user);
+
                         return redirect()->to(base_url('admin/dashboard'));
     
+                    }else{
+
+                        return redirect()->to(base_url('logout')); 
                     }
                 }
             }
@@ -262,8 +270,9 @@ class AuthController extends BaseController
 
     public function logout()
 	{
-		$this->session->remove(['isLoggedIn', 'user']);
-
+	
+        session()->destroy();
+        // return redirect()->to('login');
         return redirect()->to(base_url('login'));
 	}
       // * --------------------------------------------------------------------
