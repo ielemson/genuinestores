@@ -107,14 +107,14 @@
         <div class="container">
           <ul class="nav page-navigation">
             <li class="nav-item">
-              <a href="<?=base_url("dashboard")?>" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title">DASHBOARD</span></a>
+              <a href="<?=base_url("admin/dashboard")?>" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title">DASHBOARD</span></a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">PRODUCT</span><i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/product/create")?>">CREATE</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/products")?>">VIEW</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("admin/product/create")?>">CREATE</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("admin/products")?>">VIEW</a></li>
                   <!-- <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
                   <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li> -->
                 </ul>
@@ -124,8 +124,8 @@
               <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">CATEGORY</span><i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/category/create")?>">CREATE</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?=base_url("dashboard/categories")?>">VIEW</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("admin/category/create")?>">CREATE</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url("admin/categories")?>">VIEW</a></li>
                   <!-- <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
                   <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li> -->
                 </ul>

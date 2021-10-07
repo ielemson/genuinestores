@@ -16,7 +16,7 @@
 <h5 class="card-title mb-4">Create Product</h5>
 <div class="fluid-container">
 
-<form action="<?= base_url('dashboard/product'); ?>" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+<form action="<?= base_url('admin/product'); ?>" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
 <?= csrf_field() ?>
 
 <div class="form-group">

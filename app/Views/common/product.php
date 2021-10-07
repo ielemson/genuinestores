@@ -19,15 +19,18 @@
 <div class="card">
 <article class="gallery-wrap"> 
 	<div class="img-big-wrap">
-	  <div> <a href="#"><img src="images/items/15.jpg"></a></div>
+	  <div> <a href="#"><img src="<?= base_url("uploads/product")?>/<?=$product['cover_img']?>"></a></div>
 	</div> <!-- slider-product.// -->
+	
 	<div class="thumbs-wrap">
-	  <a href="#" class="item-thumb"> <img src="images/items/15.jpg"></a>
-	  <a href="#" class="item-thumb"> <img src="images/items/15-1.jpg"></a>
-	  <a href="#" class="item-thumb"> <img src="images/items/15-2.jpg"></a>
-	  <a href="#" class="item-thumb"> <img src="images/items/15-1.jpg"></a>
+	<?php if (count($images) > 0):?>
+		<?php foreach ($images as $key => $image):?>
+	  <a href="#" class="item-thumb"> <img src="<?= base_url("uploads/product")?>/<?=$product['cover_img']?>" style="width:100%;"></a>
+	  <?php endforeach; ?>
 	</div> <!-- slider-nav.// -->
+	<?php endif;?>
 </article> <!-- gallery-wrap .end// -->
+
 </div> <!-- card.// -->
 		</aside>
 		<main class="col-md-6">

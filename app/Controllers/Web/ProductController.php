@@ -4,6 +4,8 @@ namespace App\Controllers\Web;
 
 use App\Controllers\BaseController;
 use App\Models\Category;
+use App\Models\ProductImage;
+use App\Models\Product;
 
 class ProductController extends BaseController
 {
@@ -13,8 +15,13 @@ class ProductController extends BaseController
 			'title'=>':: Product'
 		];
         $categoryModel = new Category();
+        $productImage = new ProductImage();
+        $productModel = new Product();
         // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
+        $data['product'] = $productModel->where('slug', $slug)->first();
+        $data['images'] = $productImage->where('prod_id', $data['product']['id'])->findAll();
+        // dd($data);
 
         return view('common/pages/product',$data);
     }

@@ -18,8 +18,6 @@ class CreateProductImagesTable extends Migration
 			'prod_id'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,
-				'unsigned'       => true,
-				'auto_increment' => false,
 			],
 			'name'          => [
                 'type'       => 'VARCHAR',

@@ -165,9 +165,9 @@ class ProductController extends BaseController
         }
             
        
-		return redirect()->to(base_url('dashboard/products'))->with('success', "Product Created Sucessfully");
+		return redirect()->to(base_url('admin/products'))->with('success', "Product Created Sucessfully");
         }
-        return redirect()->to(base_url('dashboard/product/create'))->withInput()->with('errors', $product->errors());
+        return redirect()->to(base_url('admin/product/create'))->withInput()->with('errors', $product->errors());
         
     }
 

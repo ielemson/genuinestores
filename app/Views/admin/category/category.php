@@ -13,7 +13,7 @@
                     <div class="card-body">
                       <h5 class="card-title mb-4">Create Category</h5>
                       <div class="fluid-container">
-                      <form action="<?= base_url('category'); ?>" method="POST" accept-charset="UTF-8" >
+                      <form action="<?= base_url('admin/category'); ?>" method="POST" accept-charset="UTF-8" >
                          <?= csrf_field() ?>
                       <div class="form-group">
                         <label for="exampleInputName1">Cateory Name</label>

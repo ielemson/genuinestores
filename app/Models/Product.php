@@ -29,7 +29,7 @@ class Product extends Model
 	protected $dynamicRules = [
 		'storeProducts' => [
             'name' => 'required|min_length[5]|max_length[255]',
-            'title' => 'required|min_length[10]|max_length[50]',
+            'title' => 'required|min_length[5]|max_length[50]',
             // 'images[]' =>'required',
             'cprice' => 'required',
             'sprice' => 'required',

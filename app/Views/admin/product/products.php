@@ -47,8 +47,8 @@ if ($products) {?>
                         <p class="mb-4">
                          You currently have no active product
                         </p>
-                        <a href="<?=base_url('dashboard/category/create')?>" class="btn btn-primary">Create Category</a>
-                        <a href="<?=base_url('dashboard/product/create')?>" class="btn btn-info">Create Product</a>
+                        <a href="<?=base_url('admin/category/create')?>" class="btn btn-primary">Create Category</a>
+                        <a href="<?=base_url('admin/product/create')?>" class="btn btn-info">Create Product</a>
                       </div>
                     </div>
 

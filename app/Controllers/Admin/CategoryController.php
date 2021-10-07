@@ -51,11 +51,11 @@ class CategoryController extends BaseController
             'status'  => $this->request->getPost('status'),
         ]);
 
-        return redirect()->to(base_url('dashboard/categories'))->with('success', "Category Created");
+        return redirect()->to(base_url('admin/categories'))->with('success', "Category Created");
 
 
     } else {
-        return redirect()->to(base_url('dashboard/category/create'))->with('error', "Error Creating Category");
+        return redirect()->to(base_url('admin/category/create'))->with('error', "Error Creating Category");
     }
 
 

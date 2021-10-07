@@ -13,11 +13,11 @@
                     <div class="card-body">
                       <h5 class="card-title mb-4">Create Category</h5>
                       <div class="fluid-container">
-                      <form action="<?= base_url('dashboard/category'); ?>" method="POST" accept-charset="UTF-8" >
+                      <form action="<?= base_url('admin/category'); ?>" method="POST" accept-charset="UTF-8" >
                          <?= csrf_field() ?>
                       <div class="form-group">
                         <label for="exampleInputName1">Cateory Name</label>
-                        <input type="text" class="form-control" id="name" placeholder=" Product Name" name="name" required>
+                        <input type="text" class="form-control" id="name" placeholder=" Product Name" name="name" required value="<?=old('name')?>">
                       </div>
                      
                       
