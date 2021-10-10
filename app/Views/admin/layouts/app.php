@@ -24,7 +24,7 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" /> 
 
-    <style>
+  <style>
       .card-product .img-wrap {
     border-radius: 3px 3px 0 0;
     overflow: hidden;
@@ -57,6 +57,7 @@
     color: #999;
 }
     </style>
+
   </head>
 
   <body>
@@ -109,6 +110,8 @@
     <!-- Custom js for this page-->
     <script src="<?= base_url('admin/js/dashboard.js')?>"></script>
     <!-- End custom -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+    <?= $this->renderSection('custom_js'); ?>
   </body>
 
 </html>

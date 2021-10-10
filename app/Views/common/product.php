@@ -14,29 +14,47 @@
 <div class="container">
 
 <!-- ============================ ITEM DETAIL ======================== -->
-	<div class="row">
-		<aside class="col-md-6">
+<div class="row">
+<aside class="col-md-6">
 <div class="card">
 <article class="gallery-wrap"> 
-	<div class="img-big-wrap">
-	  <div> <a href="#"><img src="<?= base_url("uploads/product")?>/<?=$product['cover_img']?>"></a></div>
-	</div> <!-- slider-product.// -->
-	
-	<div class="thumbs-wrap">
-	<?php if (count($images) > 0):?>
-		<?php foreach ($images as $key => $image):?>
-	  <a href="#" class="item-thumb"> <img src="<?= base_url("uploads/product")?>/<?=$product['cover_img']?>" style="width:100%;"></a>
-	  <?php endforeach; ?>
-	</div> <!-- slider-nav.// -->
-	<?php endif;?>
-</article> <!-- gallery-wrap .end// -->
+<div class="container-fluid slider">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                <!-- slides -->
+                <div class="carousel-inner">
+		      <?php foreach ($images as $key => $image):?>
+                <div class="carousel-item <?= ($key == 0) ? "active" : "";?>"> 
+					<img src="<?= base_url("uploads/product")?>/<?=$image['name']?>" alt="<?=$product['name']?>" style="width:100%; height:50vh">
+				</div>
+                   <?php endforeach ?>
+                </div>
+
+				 <!-- Left right --> 
+				 <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
+					 <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
+                <ol class="carousel-indicators list-inline">
+				<?php foreach ($images as $imgkey => $image):?>
+                    <li class="list-inline-item <?= ($imgkey == 0) ? "active" : "";?>">
+					 <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel">
+						  <img src="<?= base_url("uploads/product")?>/<?=$image['name']?>" class="img-fluid" style="width:100%; height:8vh"> </a>
+						 </li>
+                  <?php endforeach ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</article>
+ <!-- gallery-wrap .end// -->
 
 </div> <!-- card.// -->
 		</aside>
 		<main class="col-md-6">
 <article class="product-info-aside">
 
-<h2 class="title mt-3">Hot sale unisex New Design Shoe </h2>
+<h2 class="title mt-3"><?=$product['name']?> </h2>
 
 <div class="rating-wrap my-3">
 	<ul class="rating-stars">
@@ -56,16 +74,13 @@
 </div> <!-- rating-wrap.// -->
 
 <div class="mb-3"> 
-	<var class="price h4">USD 465,00</var> 
-	<span class="text-muted">USD 562.65 incl. VAT</span> 
+	<var class="price h4">NGN <?=$product['sprice']?></var> 
+	<!-- <span class="text-muted">USD 562.65 incl. VAT</span>  -->
 </div> <!-- price-detail-wrap .// -->
 
-<p>Compact sport shoe for running, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat </p>
+<p>
+<?=$product['description']?> 
+</p>
 
 
 <dl class="row">
@@ -126,85 +141,11 @@ consequat </p>
 	<div class="col-md-8">
 		<h5 class="title-description">Description</h5>
 		<p>
-			Lava stone grill, suitable for natural gas, with cast-iron cooking grid, piezo ignition, stainless steel burners, water tank, and thermocouple. Thermostatic adjustable per zone. Comes complete with lava rocks. Adjustable legs. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. 
+	   <?= $product['description'] ?>
 		</p>
-		<ul class="list-check">
-		<li>Material: Stainless steel</li>
-		<li>Weight: 82kg</li>
-		<li>built-in drip tray</li>
-		<li>Open base for pots and pans</li>
-		<li>On request available in propane execution</li>
-		</ul>
-
-		<h5 class="title-description">Specifications</h5>
-		<table class="table table-bordered">
-			<tr> <th colspan="2">Basic specs</th> </tr>
-			<tr> <td>Type of energy</td><td>Lava stone</td> </tr>
-			<tr> <td>Number of zones</td><td>2</td> </tr>
-			<tr> <td>Automatic connection	</td> <td> <i class="fa fa-check text-success"></i> Yes </td></tr>
-
-			<tr> <th colspan="2">Dimensions</th> </tr>
-			<tr> <td>Width</td><td>500mm</td> </tr>
-			<tr> <td>Depth</td><td>400mm</td> </tr>
-			<tr> <td>Height	</td><td>700mm</td> </tr>
-
-			<tr> <th colspan="2">Materials</th> </tr>
-			<tr> <td>Exterior</td><td>Stainless steel</td> </tr>
-			<tr> <td>Interior</td><td>Iron</td> </tr>
-
-			<tr> <th colspan="2">Connections</th> </tr>
-			<tr> <td>Heating Type</td><td>Gas</td> </tr>
-			<tr> <td>Connected load gas</td><td>15 Kw</td> </tr>
-
-		</table>
+			
 	</div> <!-- col.// -->
-	
-	<aside class="col-md-4">
 
-		<div class="box">
-		
-		<h5 class="title-description">Files</h5>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-
-    <h5 class="title-description">Videos</h5>
-      
-
-    <article class="media mb-3">
-      <a href="#"><img class="img-sm mr-3" src="images/posts/3.jpg"></a>
-      <div class="media-body">
-        <h6 class="mt-0"><a href="#">How to use this item</a></h6>
-        <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
-      </div>
-    </article>
-
-    <article class="media mb-3">
-      <a href="#"><img class="img-sm mr-3" src="images/posts/2.jpg"></a>
-      <div class="media-body">
-        <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-        <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
-      </div>
-    </article>
-
-    <article class="media mb-3">
-      <a href="#"><img class="img-sm mr-3" src="images/posts/1.jpg"></a>
-      <div class="media-body">
-        <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-        <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
-      </div>
-    </article>
-
-
-		
 	</div> <!-- box.// -->
 	</aside> <!-- col.// -->
 </div> <!-- row.// -->
@@ -239,3 +180,51 @@ consequat </p>
 </div>
 </section>
 <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
+
+<?= $this->section('custom_css'); ?>
+
+<style>
+	body {
+    background-color: #7B1FA2
+}
+
+.slider{
+    margin-top: 30px;
+    margin-bottom: 80px
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+}
+
+.carousel-item img {
+    width: 100%
+}
+</style>
+
+<?= $this->endSection(); ?>
+
+

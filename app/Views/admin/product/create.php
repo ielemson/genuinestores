@@ -79,7 +79,7 @@
 
 <div class="form-group">
 <label for="description">Description</label>
-<textarea class="form-control" id="description" rows="4" name="description" required></textarea>
+<textarea class="form-control" id="editor" cols="30" rows="10" name="description" required></textarea>
 </div>
 <button type="submit" class="btn btn-primary mr-2">Create</button>
 <button class="btn btn-light" type="reset">Cancel</button>
@@ -90,4 +90,20 @@
 </div>
 </div>
 </div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('custom_js'); ?>
+
+<script>
+ClassicEditor
+.create( document.querySelector( '#editor' ) )
+.then( editor => {
+        console.log( editor );
+} )
+.catch( error => {
+        console.error( error );
+} );
+</script>
+
 <?= $this->endSection(); ?>

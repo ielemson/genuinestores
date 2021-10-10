@@ -10,11 +10,7 @@
 
 <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-<!-- jQuery -->
-<script src="<?= base_url('js/jquery-2.0.0.min.js')?>" type="text/javascript"></script>
 
-<!-- Bootstrap4 files-->
-<script src="<?= base_url('js/bootstrap.bundle.min.js')?>" type="text/javascript"></script>
 <link href="<?= base_url('css/bootstrap3661.css?v=2.0')?>" rel="stylesheet" type="text/css"/>
 
 <!-- Font awesome 5 -->
@@ -24,12 +20,9 @@
 <link href="<?= base_url('css/ui3661.css?v=2.0')?>" rel="stylesheet" type="text/css"/>
 <link href="<?= base_url('css/responsive3661.css?v=2.0')?>" rel="stylesheet" type="text/css" />
 
-<!-- custom javascript -->
-<script src="<?= base_url('js/script3661.js?v=2.0')?>" type="text/javascript"></script>
-
+<?= $this->renderSection('custom_css'); ?>
 </head>
 <body>
-
 
 
 <!-- ========================= SECTION HEADER  ========================= -->
@@ -47,6 +40,16 @@
 <!-- ========================= SECTION MAIN END// ========================= -->
 
 <?= $this->include('layouts/common/footer'); ?>
+
+<!-- jQuery -->
+<script src="<?= base_url('js/jquery-2.0.0.min.js')?>" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<script src="<?= base_url('js/bootstrap.bundle.min.js')?>" type="text/javascript"></script>
+
+<!-- custom javascript -->
+<script src="<?= base_url('js/script3661.js?v=2.0')?>" type="text/javascript"></script>
+
 </body>
 
 </html>
