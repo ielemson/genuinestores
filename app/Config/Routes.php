@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 // COMMON ROUTES
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'HomeController::index');
+$routes->get('/about', 'HomeController::about');
+$routes->get('/contact', 'HomeController::contact');
 
 
 
@@ -60,9 +62,12 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 
 
 });
+
+
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "auth"], function($routes) {
 
 	// ADMIN DASHBOARD
+	
 	$routes->get('dashboard', 'AdminController::dashboard',['as'=>'dashboard']);
 
 	// PRODUCT ROUTE
@@ -80,13 +85,19 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
   });
 
 
-$routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
+
+
+
+
+  $routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
 
 	$routes->get('product/(:any)', 'ProductController::product/$1');
+	$routes->get('category/product/(:any)', 'CategoryController::category/$1');
 	
   });
 
-$routes->group('customer', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
+
+  $routes->group('customer', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
 
 	// CUSTOMER DASHBOARD
 	$routes->get('dashboard', 'CustomerController::dashboard');

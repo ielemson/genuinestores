@@ -21,8 +21,9 @@ class ProductController extends BaseController
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
         $data['product'] = $productModel->where('slug', $slug)->first();
         $data['images'] = $productImage->where('prod_id', $data['product']['id'])->findAll();
+        $data['prod_cat'] = $categoryModel->where('id', $data['product']['cat_id'])->first();
         // dd($data);
 
-        return view('common/pages/product',$data);
+        return view('product',$data);
     }
 }

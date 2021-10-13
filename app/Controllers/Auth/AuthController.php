@@ -45,7 +45,7 @@ class AuthController extends BaseController
         // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
 
-        return view('common/login',$data);
+        return view('login',$data);
     }
 
 	/**
@@ -132,7 +132,7 @@ class AuthController extends BaseController
         // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
 
-        return view('common/register',$data);
+        return view('register',$data);
     }
 
 

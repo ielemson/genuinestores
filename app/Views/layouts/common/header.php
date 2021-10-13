@@ -95,17 +95,17 @@
 		if ($categories) {?>
 		<div class="dropdown-menu">
 		<?php foreach ($categories as $key => $category) {?>
-			<a class="dropdown-item" href="<?= base_url('product/category/'.$category['slug']);?>"><?=$category['name']?></a>
+			<a class="dropdown-item" href="<?= base_url('category/product/'.$category['slug']);?>"><?=$category['name']?></a>
 			<?php  }?>
 			</div>
 		<?php } ?>
 			<!-- <a class="nav-link" href="#">Categories</a> -->
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" href="#">About</a>
+		<a class="nav-link" href="<?= base_url('about')?>">About</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" href="#">Contact</a>
+		<a class="nav-link" href="<?= base_url('contact')?>">Contact</a>
 		</li>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>

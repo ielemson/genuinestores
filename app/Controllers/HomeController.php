@@ -41,7 +41,25 @@ class HomeController extends BaseController
             $builder->join('categories as category', 'product.cat_id = category.id');
             $data['products']= $builder->get()->getResultArray();
 
-		return view('common/home',$data);
+		return view('home',$data);
 	}
+
+
+    public function contact(){
+
+        $categoryModel = new Category();
+        // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
+        $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+        return view('contact',$data);
+    }
+
+    public function about(){
+        $categoryModel = new Category();
+        // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
+        $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+        return view('about',$data);
+    }
 }
 
