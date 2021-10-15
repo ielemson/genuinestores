@@ -78,7 +78,7 @@
 	<div class="row">
 		<aside class="col-md-6">
 			<div class="card card-banner-lg bg-dark">
-				<img src="images/banners/banner4.jpg" class="card-img opacity">
+				<img src="<?=base_url('images/banners/banner4.jpg')?>" class="card-img opacity">
 				<div class="card-img-overlay text-white">
 				  <h2 class="card-title">Big Deal on Clothes</h2>
 				  <p class="card-text" style="max-width: 80%">This is a wider card with text below and Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab quae nihil praesentium impedit libero possimus id vero</p>
@@ -88,7 +88,7 @@
 		</aside>
 		<div class="col-md-6">
 			<div class="card card-banner-lg bg-dark">
-				<img src="images/banners/banner5.jpg" class="card-img opacity">
+				<img src="<?=base_url('images/banners/banner5.jpg')?>" class="card-img opacity">
 				<div class="card-img-overlay text-white">
 				  <h2 class="card-title">Great Bundle for You</h2>
 				    <p class="card-text" style="max-width: 80%">Card with text below and Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab quae nihil praesentium impedit libero possimus id vero</p>

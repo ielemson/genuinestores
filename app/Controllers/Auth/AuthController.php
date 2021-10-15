@@ -252,8 +252,29 @@ class AuthController extends BaseController
             session()->set($data);
             return true;
         }
-    
+    // * --------------------------------------------------------------------
+    // * ADMIN LOGIN MODEL ENDS HERE
+    // * --------------------------------------------------------------------
 
+
+    
+    // * --------------------------------------------------------------------
+    // * ADMIN LOGIN MODEL ENDS HERE
+    // * --------------------------------------------------------------------
+
+    public function forgotPassword(){
+       
+        $data =  [
+            'title' => ':: Forgot Password',
+            'user' => $this->session->user
+            ];
+
+        $categoryModel = new Category();
+        // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
+        $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+        return view('auth/forgot-password',$data);
+    }
     // * --------------------------------------------------------------------
     // * ADMIN LOGIN MODEL ENDS HERE
     // * --------------------------------------------------------------------

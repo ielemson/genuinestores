@@ -3,7 +3,7 @@
 <!-- MAIN CONTENT -->
 <?= $this->section('content'); ?>
 
-<?= $this->include('admin/common/dashboard'); ?>
+<?= $this->include('admin/pages/dashboard'); ?>
 
 <?= $this->endSection(); ?>
 

@@ -5,7 +5,7 @@
 <div class="container">
 <div class="col-md-12">
 <div class="card card-post card-round">
-<!-- <img class="card-img-top" src="<?= base_url("admin/images/products/product-1.jpg")?>" alt="Card image cap"> -->
+<?= $this->include('admin/includes/_notification'); ?>
 <div class="card-body">
 <div class="col-12">
                     <div class="table-responsive">

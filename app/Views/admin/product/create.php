@@ -6,7 +6,7 @@
 <div class="container">  
   
 <div class="col-md-12 mx-auto">
-<?= $this->include('admin/common/notification'); ?>
+<?= $this->include('admin/includes/_notification'); ?>
 </div>
 
 <div class="row">
@@ -71,7 +71,7 @@
 </div>
 
 <div class="form-group">
-<label>Slider Image upload</label>
+<label>Product Slider Image upload</label>
 <div class="input-group col-xs-12">
 <input type="file" class="form-control file-upload-info" name="image[]" multiple="multiple" accept=".png, .jpg, .jpeg" required>
 </div>

@@ -44,6 +44,8 @@ $routes->get('/contact', 'HomeController::contact');
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 	// Registration
 	$routes->get('register', 'Auth\AuthController::getRegister',['as'=>'register']);
+	$routes->get('reset-password', 'Auth\AuthController::resetPassword');
+	$routes->get('forgot-password', 'Auth\AuthController::forgotPassword');
     $routes->post('create-account', 'Auth\AuthController::attemptRegister');
 
 	// Activation
@@ -81,6 +83,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->get('category/edit/(:num)', 'CategoryController::edit/$1');
 	$routes->get('categories', 'CategoryController::categories');
 	$routes->post('category', 'CategoryController::storeCategory');
+
+	// SLIDER ROUTES
+	$routes->get('slider/create', 'AdminController::slider');
 	
   });
 

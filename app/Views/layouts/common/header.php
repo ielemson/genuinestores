@@ -118,7 +118,7 @@
 
 						<?php }elseif(isset($_SESSION["role"]) && $_SESSION["role"] == "customer"){ ?>
 
-							<a class="dropdown-item" href="<?= base_url('customer/dashboard'); ?>">Customer</a>
+							<a class="dropdown-item" href="<?= base_url('customer/dashboard'); ?>">Dashboard</a>
 							<a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
 						<?php }else{ ?>
 

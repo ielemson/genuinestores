@@ -6,7 +6,7 @@
 <div class="container">  
   
 <div class="col-md-12 mx-auto">
-<?= $this->include('admin/common/notification'); ?>
+<?= $this->include('admin/includes/_notification'); ?>
 </div>
 
 <div class="row">

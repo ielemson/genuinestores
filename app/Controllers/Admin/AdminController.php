@@ -19,4 +19,9 @@ class AdminController extends BaseController
     {
         return view('admin/dashboard');
     }
+
+    public function slider()
+    {
+        return view('admin/slider/create');
+    }
 }

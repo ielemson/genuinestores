@@ -1,5 +1,5 @@
 <!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-conten padding-y" style="min-height:80vh">
+<section class="section-conten padding-y" style="min-height:84vh">
 
 <!-- ============================ COMPONENT LOGIN   ================================= -->
 <div class="col-md-4 mx-auto">
@@ -16,16 +16,11 @@
           <div class="form-group">
 			 <input name="email" class="form-control" placeholder="Email" type="email" name="email" value="<?= old('email') ?>" required>
           </div> <!-- form-group// -->
-          <div class="form-group">
-			<input name="password" class="form-control" placeholder="Password" type="password" name="password" required>
-          </div> <!-- form-group// -->
+         -- form-group// -->
           
+     
           <div class="form-group">
-          	<a href="<?=base_url("forgot-password")?>" class="float-right">Forgot password?</a> 
-            <label class="float-left custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked=""> <div class="custom-control-label"> Remember </div> </label>
-          </div> <!-- form-group form-check .// -->
-          <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+              <button type="submit" class="btn btn-primary btn-block"> Reset Password </button>
           </div> <!-- form-group// -->    
       </form>
       </div> <!-- card-body.// -->
