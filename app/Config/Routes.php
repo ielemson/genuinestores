@@ -85,23 +85,29 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->post('category', 'CategoryController::storeCategory');
 
 	// SLIDER ROUTES
-	$routes->get('slider/create', 'AdminController::slider');
+	$routes->get('slider/create', 'SliderController::index');
+	$routes->post('slider/store', 'SliderController::store');
+
 	
   });
 
 
 
 
-
-
+// GENEAL WEB CONTROLLER
   $routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
 
 	$routes->get('product/(:any)', 'ProductController::product/$1');
 	$routes->get('category/product/(:any)', 'CategoryController::category/$1');
+
+	// ADD TO CART ROUTE
+	$routes->get('add-to-cart/(:num)','CartController::add_to_cart/$1');
 	
   });
 
 
+
+//   CUSTOMER DASHBOARD CONTROLLER
   $routes->group('customer', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
 
 	// CUSTOMER DASHBOARD

@@ -20,10 +20,12 @@
 <link href="<?= base_url('css/ui3661.css?v=2.0')?>" rel="stylesheet" type="text/css"/>
 <link href="<?= base_url('css/responsive3661.css?v=2.0')?>" rel="stylesheet" type="text/css" />
 
+    <!--====== Toaster Alert css ======-->
+<link rel="stylesheet" type="text/css" href="<?= base_url('plugin/toastr/mdtoast.css')?>">
+
 <?= $this->renderSection('custom_css'); ?>
 </head>
 <body>
-
 
 <!-- ========================= SECTION HEADER  ========================= -->
 <?= $this->include('layouts/common/header'); ?>
@@ -49,6 +51,14 @@
 
 <!-- custom javascript -->
 <script src="<?= base_url('js/script3661.js?v=2.0')?>" type="text/javascript"></script>
+
+<!--- Jquery Toaster - -->
+<script type="text/javascript" src="<?= base_url('plugin/toastr/mdtoast.js')?>"></script>
+
+<!-- ========================= SECTION CUSTOM JS STARTS ========================= -->
+<?= $this->renderSection('customJS'); ?>
+<!-- ========================= SECTION CUSTOM JS END// ========================= -->
+
 
 </body>
 

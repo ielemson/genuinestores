@@ -140,6 +140,7 @@ class ProductController extends BaseController
 
         // dd($productArr);
 
+        
         if ($product->save($productArr)) {
 
 

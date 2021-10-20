@@ -132,11 +132,11 @@
               </div>
             </li>
             <li class="nav-item mega-menu">
-              <a href="<?=base_url('admin/slider/create')?>" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">Slider</span><i class="menu-arrow"></i></a>
+              <a href="<?=base_url('admin/slider/create')?>" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">SLIDER</span><i class="menu-arrow"></i></a>
               
             </li>
             <li class="nav-item mega-menu">
-              <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">FORMS</span><i class="menu-arrow"></i></a>
+              <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">USERS</span><i class="menu-arrow"></i></a>
               
             </li>
             <li class="nav-item">

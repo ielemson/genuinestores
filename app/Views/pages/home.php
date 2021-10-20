@@ -27,7 +27,7 @@
 						<small class="text-muted">/per item</small>
 					</div> <!-- price-wrap.// -->
 					
-					<p class="mb-2"> 	<?= ($product['qty'] > 0) ? $product['qty'].' '.'pieces' : " 0";?>  </p>
+					<p class="mb-2"> <?= ($product['qty'] > 0) ? $product['qty'].' '.'pieces' : " 0";?>  </p>
 					
 					<p class="text-muted "><?=$product['cat_name']?></p>
 				   
@@ -42,7 +42,7 @@
 			
 
 					<section class="btn-group">
-					<button class="btn btn-info"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To Cart</button>
+					<button class="btn btn-info add-to-cart" data-id="<?=$product['id']?>"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To Cart</button>
 					&nbsp;
 					<a href="<?= base_url('product/'.$product['slug']);?>" class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</a>
 					</section>
@@ -64,8 +64,6 @@
 </section>
 <!-- =============== SECTION BANNER .//END =============== -->
 <?php } ?>
-
-
 
 	
 </div> <!-- row.// -->
@@ -123,3 +121,44 @@
 
 </div>  
 <!-- container end.// -->
+
+<?= $this->section('customJS'); ?>
+
+<script>
+$(document).ready(function() {
+    // This WILL work because we are listening on the 'document', 
+    // for a click on an element with an ID of #test-element
+    $(document).on("click",".add-to-cart",function() {
+
+		var dataId = $(this).attr("data-id");
+
+		let url = "<?= base_url('add-to-cart/');?>/"+dataId
+
+        // alert("The data-id of clicked item is: " + url);
+
+		 // ajax adding data to database
+          $.ajax({
+            url : "<?= base_url('add-to-cart');?>/"+dataId,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {
+       
+             console.log(data)
+			//  $('.checkout_items').html(data.cartCount);
+               mdtoast('Product added to cart successfully', { type: mdtoast.SUCCESS, interaction: false, interactionTimeout: 3000 });
+			 
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                mdtoast('Error adding to cart', { type: mdtoast.ERROR, interaction: false, interactionTimeout: 3000 });
+				console.log(jqXHR);
+            }
+        })
+    });
+
+
+});
+</script>
+
+<?= $this->endSection(); ?>

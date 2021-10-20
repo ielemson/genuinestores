@@ -16,7 +16,7 @@
 <h5 class="card-title mb-4">Upload Image Slider</h5>
 <div class="fluid-container">
 
-<form action="<?= base_url('admin/product'); ?>" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+<form action="<?= base_url('admin/slider/store'); ?>" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
 <?= csrf_field() ?>
 
 
@@ -37,6 +37,9 @@
 <button type="submit" class="btn btn-primary mr-2">Create</button>
 <button class="btn btn-light" type="reset">Cancel</button>
 </form>
+
+
+
 </div>
 </div>
 </div>

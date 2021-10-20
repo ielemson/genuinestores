@@ -36,7 +36,7 @@
             <div class="col-lg-4 mx-auto">
                 
               <div class="auth-form-light text-left p-5">
-              <?= $this->include('admin/common/notification'); ?>
+              <?= $this->include('admin/includes/_notification'); ?>
                 <!-- <div class="brand-logo">
                   <img src="https://www.bootstrapdash.com/demo/libertyui/template/images/logo-inverse.svg" alt="logo">
                 </div> -->
