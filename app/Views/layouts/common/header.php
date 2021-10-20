@@ -65,6 +65,7 @@
 						<a href="#" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-shopping-cart"></i>
+								<span class="notify checkout_items"></span>
 							</div>
 							<small class="text"> Cart </small>
 						</a>

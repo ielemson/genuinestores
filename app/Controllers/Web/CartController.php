@@ -16,7 +16,7 @@ class CartController extends BaseController
         $productModel = new Product();
         // Call the cart service
         $cart = \Config\Services::cart();
-        $data = [];  
+        $cart_data = [];  
 
         $quantity = 1;
 
@@ -24,13 +24,31 @@ class CartController extends BaseController
 
             // // Insert an array of values
           $cart->insert(array(
-             'id'      => 'sku_1234ABCD',
+             'id'      => $data['product']['id'],
              'qty'     => 1,
-             'price'   => '19.56',
-             'name'    => 'T-Shirt',
-             'options' => array('Size' => 'L', 'Color' => 'Red')
+             'price'   => $data['product']['sprice'],
+             'name'    => $data['product']['name'],
+            //  'options' => array('Size' => 'L', 'Color' => 'Red')
           ));
 
-        echo json_encode(array("status" => true , 'data' => $prod_cart));
+          // Get the cart contents as an array
+        $cart_content  = $cart->contents();
+
+        $sumQTY = 0;
+
+        foreach ($cart_content as $key => $content) {
+        
+            $sumQTY+=$content['qty'];
+        }
+        
+        $cart_data['cartCount'] = $sumQTY;
+        $cart_data['cartContent'] = $cart_content;
+        
+        // Clear the shopping cart
+        // $cart->destroy();
+
+        echo json_encode(array("status" => true , 'data' => $cart_data));
+
+        // dd($cart_content);
     }
 }

@@ -145,7 +145,7 @@ $(document).ready(function() {
             {
        
              console.log(data)
-			//  $('.checkout_items').html(data.cartCount);
+			 $('.checkout_items').html(data.cartCount);
                mdtoast('Product added to cart successfully', { type: mdtoast.SUCCESS, interaction: false, interactionTimeout: 3000 });
 			 
             },
