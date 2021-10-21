@@ -88,7 +88,7 @@ class CartController extends BaseController
     }
 
     public function destroy(){
-
+        $cart = \Config\Services::cart();
         // Clear the shopping cart
         $cart->destroy();
         return redirect()->to(base_url('cart'))->with('success', "Cart cleared Successfully");

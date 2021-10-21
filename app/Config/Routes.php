@@ -103,6 +103,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	// ADD TO CART ROUTE
 	$routes->get('add-to-cart/(:num)','CartController::add_to_cart/$1');
 	$routes->get('cart','CartController::cart');
+	$routes->get('cart/destroy','CartController::destroy');
 	
   });
 

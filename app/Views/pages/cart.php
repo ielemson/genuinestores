@@ -15,7 +15,7 @@ if(count($cart_content)> 0){
 
 <div class="row">
 	<main class="col-md-9">
-<div class="card">
+<div class="card table-responsive">
 
 <table class="table table-borderless table-shopping-cart">
 <thead class="text-muted">
@@ -61,11 +61,17 @@ foreach ($cart_content as $key => $content) {
 	</td>
 </tr>
 <?php }?>
+
 </tbody>
+<tfoot>
+      <tr>
+        <td >	<a href="<?=base_url('cart/destroy')?>" class="btn btn-primary btn-sm"> Clear Cart <i class="fa fa-trash"></i> </a>.</td>
+      </tr>
+    </tfoot>
 </table>
 
 <div class="card-body border-top">
-	<a href="<?=base_url('checkout')?>" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+	<a href="<?=base_url('checkout')?>" class="btn btn-success float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
 	<a href="<?=base_url('/')?>" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
 </div>	
 </div> <!-- card.// -->
