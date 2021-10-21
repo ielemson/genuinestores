@@ -26,4 +26,12 @@ class CustomerController extends BaseController
             'user' => $this->session->user, 
         ]);
     }
+
+    public function checkout(){
+
+        $cart = \Config\Services::cart();
+        $cart_content  = $cart->contents();
+
+        return $cart_content;
+    }
 }

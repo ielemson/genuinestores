@@ -62,10 +62,17 @@
 					<?php } ?>
 
 					<div class="widget-header">
-						<a href="#" class="widget-view">
+						<a href="<?=base_url('cart')?>" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-shopping-cart"></i>
-								<span class="notify checkout_items"></span>
+								<span class="notify checkout_items">
+
+								<?php
+								// Call the cart service
+								$cart = \Config\Services::cart();
+								echo $cart->totalItems();
+								?>
+								</span>
 							</div>
 							<small class="text"> Cart </small>
 						</a>

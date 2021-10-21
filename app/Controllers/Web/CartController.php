@@ -4,7 +4,7 @@ namespace App\Controllers\Web;
 
 use App\Controllers\BaseController;
 use App\Models\Product;
-
+use App\Models\Category;
 class CartController extends BaseController
 {
     
@@ -28,6 +28,8 @@ class CartController extends BaseController
              'qty'     => 1,
              'price'   => $data['product']['sprice'],
              'name'    => $data['product']['name'],
+             'img'    => $data['product']['cover_img'],
+             'desc'    => $data['product']['description'],
             //  'options' => array('Size' => 'L', 'Color' => 'Red')
           ));
 
@@ -50,5 +52,45 @@ class CartController extends BaseController
         echo json_encode(array("status" => true , 'data' => $cart_data));
 
         // dd($cart_content);
+    }
+
+    public function cart(){
+
+        $cart = \Config\Services::cart();
+        $cart_content  = $cart->contents();
+
+        $data = [
+			'title'=>':: Cart'
+		];
+        $categoryModel = new Category();
+      
+        // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
+        $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+        // if (count($cart_content) > 0) {
+            
+        //     dd($cart_content);
+
+        // }
+
+        return view('cart',$data);
+
+     
+
+    }
+
+    public function checkout(){
+
+        $cart = \Config\Services::cart();
+        $cart_content  = $cart->contents();
+
+        return $cart_content;
+    }
+
+    public function destroy(){
+
+        // Clear the shopping cart
+        $cart->destroy();
+        return redirect()->to(base_url('cart'))->with('success', "Cart cleared Successfully");
     }
 }

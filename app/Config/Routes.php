@@ -102,7 +102,13 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 
 	// ADD TO CART ROUTE
 	$routes->get('add-to-cart/(:num)','CartController::add_to_cart/$1');
+	$routes->get('cart','CartController::cart');
 	
+  });
+
+  $routes->group('', ['namespace' => 'App\Controllers\Web',"filter" => "auth"], function($routes) {
+	
+	$routes->get('checkout', 'CustomerController::checkout');
   });
 
 
@@ -112,6 +118,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 
 	// CUSTOMER DASHBOARD
 	$routes->get('dashboard', 'CustomerController::dashboard');
+
 	
   });
 
