@@ -6,6 +6,6 @@
 			<a class="list-group-item" href="page-profile-wishlist.html"> My wishlist </a>
 			<a class="list-group-item" href="page-profile-seller.html"> My Selling Items </a>
 			<a class="list-group-item" href="page-profile-setting.html"> Settings </a>
-			<a class="list-group-item" href="page-index-1.html"> Log out </a>
+			<a class="list-group-item" href="<?= base_url('logout'); ?>"> Log out </a>
 		</nav>
 	</aside> <!-- col.// -->

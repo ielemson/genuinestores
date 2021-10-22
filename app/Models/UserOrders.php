@@ -4,20 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Order extends Model
+class UserOrders extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'orders';
+    protected $table                = 'user_orders';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['user_id','product_id','qty','status','price','img','order_no'];
+    protected $allowedFields        = ['user_id','prod_id','qty','status','price','img'];
 
     // Dates
-    protected $useTimestamps        = true;
+    protected $useTimestamps        = false;
     protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';

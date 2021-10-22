@@ -104,12 +104,14 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->get('add-to-cart/(:num)','CartController::add_to_cart/$1');
 	$routes->get('cart','CartController::cart');
 	$routes->get('cart/destroy','CartController::destroy');
+	$routes->get('cart/remove/(:any)','CartController::remove/$1');
 	
   });
 
-  $routes->group('', ['namespace' => 'App\Controllers\Web',"filter" => "auth"], function($routes) {
+  $routes->group('', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
 	
-	$routes->get('checkout', 'CustomerController::checkout');
+	$routes->get('order/checkout', 'CustomerController::checkout');
+	
   });
 
 

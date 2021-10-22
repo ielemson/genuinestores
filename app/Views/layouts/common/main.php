@@ -23,6 +23,9 @@
     <!--====== Toaster Alert css ======-->
 <link rel="stylesheet" type="text/css" href="<?= base_url('plugin/toastr/mdtoast.css')?>">
 
+    <!--====== Jquery alert css ======-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    
 <?= $this->renderSection('custom_css'); ?>
 </head>
 <body>
@@ -55,6 +58,8 @@
 <!--- Jquery Toaster - -->
 <script type="text/javascript" src="<?= base_url('plugin/toastr/mdtoast.js')?>"></script>
 
+<!--Jquery alert js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- ========================= SECTION CUSTOM JS STARTS ========================= -->
 <?= $this->renderSection('customJS'); ?>
 <!-- ========================= SECTION CUSTOM JS END// ========================= -->

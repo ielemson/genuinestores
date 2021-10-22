@@ -6,13 +6,14 @@
 
 $cart = \Config\Services::cart();
 $cart_content  = $cart->contents();
+ $total = $cart->total();
+//  dd($cart_content);
 if(count($cart_content)> 0){
 
 
 ?>
 
 <div class="container">
-
 <div class="row">
 	<main class="col-md-9">
 <div class="card table-responsive">
@@ -56,8 +57,8 @@ foreach ($cart_content as $key => $content) {
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a data-original-title="Save to Wishlist" title="" href="#" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-	<a href="#" class="btn btn-light"> Remove</a>
+	<!-- <a data-original-title="Save to Wishlist" title="" href="#" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>  -->
+	<a href="#" class="btn btn-light remove-cart" data-id="<?=$content['rowid']?>"> Remove</a>
 	</td>
 </tr>
 <?php }?>
@@ -71,7 +72,7 @@ foreach ($cart_content as $key => $content) {
 </table>
 
 <div class="card-body border-top">
-	<a href="<?=base_url('checkout')?>" class="btn btn-success float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+	<a href="<?=base_url('order/checkout')?>" class="btn btn-success float-md-right"> Complete Order <i class="fa fa-chevron-right"></i> </a>
 	<a href="<?=base_url('/')?>" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
 </div>	
 </div> <!-- card.// -->
@@ -101,15 +102,15 @@ foreach ($cart_content as $key => $content) {
 			<div class="card-body">
 					<dl class="dlist-align">
 					  <dt>Total price:</dt>
-					  <dd class="text-right">USD 568</dd>
+					  <dd class="text-right">NGN &nbsp;<?=$total?></dd>
 					</dl>
 					<dl class="dlist-align">
 					  <dt>Discount:</dt>
-					  <dd class="text-right">USD 658</dd>
+					  <dd class="text-right">NGN 0</dd>
 					</dl>
 					<dl class="dlist-align">
 					  <dt>Total:</dt>
-					  <dd class="text-right  h5"><strong>$1,650</strong></dd>
+					  <dd class="text-right  h5"><strong>&#x20A6;&nbsp;<?=$total?></strong></dd>
 					</dl>
 					<hr>
 					<p class="text-center mb-3">
@@ -169,3 +170,63 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div><!-- container // -->
 </section>
 <!-- ========================= SECTION  END// ========================= -->
+
+
+
+
+<?= $this->section('customJS'); ?>
+
+<script>
+
+$('document').ready(function(){
+	
+	$('.remove-cart').on('click', function(e){
+    e.preventDefault();
+    const id = $(this).attr('data-id');
+
+	
+    $.alert({
+    title: 'Confirm',
+    content: 'Remove Product ?',
+    type: 'red',
+    typeAnimated: true,
+    rtl: false,
+    closeIcon: true,
+    buttons: {
+        confirm: {
+            text: 'Remove',
+            btnClass: 'btn-danger',
+            action: function () {
+    $.ajax({
+    type: "GET",
+    // url: '{{ url('cart/remove') }}' + '/' + id,
+	url : "<?= base_url('cart/remove');?>/"+id,
+    data: {
+    'id': id,
+    },
+    success: function(data) {
+      window.location.reload();
+    },
+    error: function(data) {
+    //   window.location.reload();
+    },
+    
+    });
+            }
+        },
+        cancel: {
+            text: 'Cancel',
+            btnClass: 'btn-blue',
+            action: function () {
+                $.alert('Action Canceled!');
+            }
+        }
+    }
+});
+    });
+})
+
+</script>
+
+
+<?= $this->endSection(); ?>

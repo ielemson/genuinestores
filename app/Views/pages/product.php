@@ -113,11 +113,11 @@
 			</div>
 		</div> <!-- col.// -->
 		<div class="form-group col-md">
-			<a href="#"  class="btn  btn-primary"> 
-				<i class="fas fa-shopping-cart"></i> <span class="text">Add to cart</span> 
-			</a>
-			<a href="#" class="btn btn-light">
-        <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span> 
+			<button  class="btn  btn-primary add-to-cart" data-id="<?=$product['id']?>"> 
+				<i class="fas fa-shopping-cart" ></i> <span class="text">Add to cart</span> 
+			</button>
+			<a href="<?=base_url('/')?>" class="btn btn-light">
+        <i class="fas fa-chevron-left"></i> <span class="text">Continue Shopping</span> 
 			</a>
 		</div> <!-- col.// -->
 	</div> <!-- row.// -->
@@ -155,31 +155,6 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 
-
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="padding-y-lg bg-light border-top">
-<div class="container">
-
-<p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
-
-<div class="row justify-content-md-center">
-  <div class="col-lg-4 col-sm-6">
-<form class="form-row">
-    <div class="col-8">
-    <input class="form-control" placeholder="Your Email" type="email">
-    </div> <!-- col.// -->
-    <div class="col-4">
-    <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-    </div> <!-- col.// -->
-</form>
-<small class="form-text">We’ll never share your email address with a third-party. </small>
-  </div> <!-- col-md-6.// -->
-</div>
-  
-
-</div>
-</section>
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->
 
 <?= $this->section('custom_css'); ?>
 
@@ -227,4 +202,42 @@
 
 <?= $this->endSection(); ?>
 
+<?= $this->section('customJS'); ?>
 
+<script>
+$(document).ready(function() {
+    // This WILL work because we are listening on the 'document', 
+    // for a click on an element with an ID of #test-element
+    $(document).on("click",".add-to-cart",function() {
+
+		var dataId = $(this).attr("data-id");
+
+		let url = "<?= base_url('add-to-cart/');?>/"+dataId
+
+        // alert("The data-id of clicked item is: " + url);
+
+		 // ajax adding data to database
+          $.ajax({
+            url : "<?= base_url('add-to-cart');?>/"+dataId,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {
+       
+			 $('.checkout_items').html(data.data.cartCount);
+               mdtoast('Product added to cart successfully', { type: mdtoast.SUCCESS, interaction: false, interactionTimeout: 3000 });
+			 
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                mdtoast('Error adding to cart', { type: mdtoast.ERROR, interaction: false, interactionTimeout: 3000 });
+				console.log(jqXHR);
+            }
+        })
+    });
+
+
+});
+</script>
+
+<?= $this->endSection(); ?>

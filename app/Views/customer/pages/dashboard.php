@@ -1,14 +1,4 @@
-<?= $this->extend('layouts/customer/app'); ?>
 
-<!-- SLIDER -->
-<?= $this->section('pageTop'); ?>
-
-<?= $this->include('customer/includes/pageTop'); ?>
-
-<?= $this->endSection(); ?>
-
-<!-- MAIN CONTENT -->
-<?= $this->section('content'); ?>
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">

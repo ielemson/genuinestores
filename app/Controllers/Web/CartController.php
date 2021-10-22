@@ -74,10 +74,9 @@ class CartController extends BaseController
         // }
 
         return view('cart',$data);
-
-     
-
     }
+
+
 
     public function checkout(){
 
@@ -85,6 +84,40 @@ class CartController extends BaseController
         $cart_content  = $cart->contents();
 
         return $cart_content;
+    }
+
+
+
+    public function remove($id=null){
+
+        $cart = \Config\Services::cart();
+
+        // Clear the shopping cart
+       // Remove an item using its `rowid`
+        
+        if($cart->remove($id)){
+
+            echo json_encode(array("status" => true));
+
+        }else{
+            
+            echo json_encode(array("status" => false));
+        }
+
+        
+        // try {
+
+        //     $cart->remove($id);
+        //     echo json_encode(array("status" => true,'cartdata'=>$data));
+        // } catch (Exception $e) {
+
+        //     // $erroData = 'and the error is: ',  $e->getMessage(), "\n";
+        //     echo json_encode(array("status" => false,'cartdata'=>$e->getMessage()));
+            
+        // }
+
+         
+         
     }
 
     public function destroy(){

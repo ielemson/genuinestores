@@ -3,7 +3,7 @@
 				
 				<figure class="icontext">
 						<div class="icon">
-							<img class="rounded-circle img-sm border" src="images/avatars/avatar3.jpg">
+							<img class="rounded-circle img-sm border" src="<?= base_url('images/avatars/user.png'); ?>">
 						</div>
 						<div class="text">
 							<strong> <?= $_SESSION['firstname']?> <?= $_SESSION['lastname']?> </strong> <br> 

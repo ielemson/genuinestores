@@ -1,6 +1,5 @@
 
-<?= $this->endSection(); ?>
-<?= $this->extend('customer/layouts/app'); ?>
+<?= $this->extend('layouts/customer/app'); ?>
 
 <!-- MAIN CONTENT -->
 <?= $this->section('content'); ?>
