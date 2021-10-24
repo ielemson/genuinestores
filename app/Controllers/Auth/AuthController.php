@@ -10,6 +10,7 @@ use App\Controllers\BaseController;
 class AuthController extends BaseController
 {
 
+    
     protected $session;
 
 	/**
@@ -29,6 +30,7 @@ class AuthController extends BaseController
     // * --------------------------------------------------------------------
     public function getLogin()
     {
+        
 
             // Check if user is logged in
             if ($this->session->isLoggedIn) {
@@ -81,29 +83,14 @@ class AuthController extends BaseController
 
           if($user['role'] == "customer"){
 
-              return redirect()->to(base_url('customer/dashboard'));
+            return redirect()->to(base_url('customer/dashboard'));
 
           }else{
+
             return redirect()->to(base_url('logout'));
           }
 		   
 	}
-
-
-    //  private function setCustomerSession($user)
-    // {
-    //     $data = [
-    //         'id' => $user['id'],
-    //         'firstname' => $user['firstname'],
-    //         'lastname' => $user['lastname'],
-    //         'email' => $user['email'],
-    //         'isLoggedIn' => true,
-    //         "role" => $user['role'],
-    //     ];
-
-    //     session()->set($data);
-    //     return true;
-    // }
 
     // * --------------------------------------------------------------------
     // * CUSTOMER LOGIN MODEL END HERE

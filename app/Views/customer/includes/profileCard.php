@@ -24,25 +24,25 @@
 				<article class="card-group card-stat">
 					<figure class="card bg">
 						<div class="p-3">
-							 <h4 class="title">38</h4>
+							 <h4 class="title"><?=count($orders)?></h4>
 							<span>Orders</span>
 						</div>
 					</figure>
-					<figure class="card bg">
+					<!-- <figure class="card bg">
 						<div class="p-3">
 							 <h4 class="title">5</h4>
 							<span>Wishlists</span>
 						</div>
-					</figure>
+					</figure> -->
 					<figure class="card bg">
 						<div class="p-3">
-							 <h4 class="title">12</h4>
+							 <h4 class="title"><?=count($orders)?></h4>
 							<span>Awaiting delivery</span>
 						</div>
 					</figure>
 					<figure class="card bg">
 						<div class="p-3">
-							 <h4 class="title">50</h4>
+							 <h4 class="title"><?=count($orders)?></h4>
 							<span>Delivered items</span>
 						</div>
 					</figure>

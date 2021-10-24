@@ -19,13 +19,13 @@ class CustomerController extends BaseController
     }
 
 
-
     public function dashboard()
     {
-        
-        return view('customer/dashboard', [
-            'user' => $this->session->user, 
-        ]);
+        $orderModel = new Order();
+        $data['orders'] = $orderModel->where('user_id', $this->session->id)->findAll();
+        // $data['user'] =$this->session->id;
+        // dd($data);
+        return view('customer/dashboard', $data);
     }
 
     public function checkout(){
@@ -42,6 +42,7 @@ class CustomerController extends BaseController
     $orderArr = [
         'user_id'          	=> session()->id,  // get current user id
         'product_id'          	=> $order['id'],
+        'product_name'          	=> $order['name'],
         'img'          	=> $order['img'],
         'price'          	=> $order['price'],
         'qty'          	=> $order['qty'],

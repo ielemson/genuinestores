@@ -33,7 +33,7 @@
 						<a href="#" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-user"></i>
-								<span class="notify">3</span>
+								<span class="notify">0</span>
 							</div>
 							<small class="text"> My profile </small>
 						</a>
@@ -42,7 +42,7 @@
 						<a href="#" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-comment-dots"></i>
-								<span class="notify">1</span>
+								<span class="notify">0</span>
 							</div>
 							<small class="text"> Message </small>
 						</a>
@@ -51,6 +51,7 @@
 						<a href="#" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-store"></i>
+								<span class="notify"><?=count($orders)?></span>
 							</div>
 							<small class="text"> Orders </small>
 						</a>

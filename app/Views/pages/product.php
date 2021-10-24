@@ -69,8 +69,8 @@
 			<i class="fa fa-star"></i> 
 		</li>
 	</ul>
-	<small class="label-rating text-muted">132 reviews</small>
-	<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+	<!-- <small class="label-rating text-muted"> reviews</small> -->
+	<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> <?=$prod_orders ?> orders </small>
 </div> <!-- rating-wrap.// -->
 
 <div class="mb-3"> 
@@ -83,7 +83,7 @@
 </p>
 
 
-<dl class="row">
+<!-- <dl class="row">
   <dt class="col-sm-3">Manufacturer</dt>
   <dd class="col-sm-9"><a href="#">Great textile Ltd.</a></dd>
 
@@ -98,7 +98,7 @@
 
   <dt class="col-sm-3">Availabilty</dt>
   <dd class="col-sm-9">in Stock</dd>
-</dl>
+</dl> -->
 
 	<div class="form-row  mt-4">
 		<div class="form-group col-md flex-grow-0">
