@@ -8,14 +8,14 @@
 						<div class="text">
 							<strong> <?= $_SESSION['firstname']?> <?= $_SESSION['lastname']?> </strong> <br> 
 							<p class="mb-2"> <?= $_SESSION['email']?> </p> 
-							<a href="#" class="btn btn-light btn-sm">Edit</a>
+							<a href="<?=base_url('customer/setting')?>" class="btn btn-light btn-sm">Edit</a>
 						</div>
 				</figure>
 				<hr>
 				<p>
 					<i class="fa fa-map-marker text-muted"></i> &nbsp; My address:  
 					 <br>
-					Tashkent city, Street name, Building 123, House 321 &nbsp 
+					 <?= $_SESSION['address']?>
 					<a href="#" class="btn-link"> Edit</a>
 				</p>
 

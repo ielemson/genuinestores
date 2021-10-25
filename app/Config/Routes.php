@@ -121,6 +121,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 
 	// CUSTOMER DASHBOARD
 	$routes->get('dashboard', 'CustomerController::dashboard');
+	$routes->get('setting', 'CustomerController::setting');
+	$routes->get('orders', 'CustomerController::orders');
 
 	
   });

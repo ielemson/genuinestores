@@ -232,6 +232,10 @@ class AuthController extends BaseController
                 'firstname' => $user['firstname'],
                 'lastname' => $user['lastname'],
                 'email' => $user['email'],
+                'address' => $user['address'],
+                'city' => $user['city'],
+                'country' => $user['country'],
+                'gender' => $user['gender'],
                 'isLoggedIn' => true,
                 "role" => $user['role'],
             ];

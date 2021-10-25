@@ -30,7 +30,7 @@
 			<div class="col-xl-4 col-lg-4 col-md-6">
 				<div class="widgets-wrap float-md-right">
 					<div class="widget-header mr-3">
-						<a href="#" class="widget-view">
+						<a href="<?=base_url('customer/setting')?>" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-user"></i>
 								<span class="notify">0</span>
@@ -48,7 +48,7 @@
 						</a>
 					</div>
 					<div class="widget-header mr-3">
-						<a href="#" class="widget-view">
+						<a href="<?=base_url('customer/orders')?>" class="widget-view">
 							<div class="icon-area">
 								<i class="fa fa-store"></i>
 								<span class="notify"><?=count($orders)?></span>

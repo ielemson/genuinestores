@@ -28,6 +28,17 @@ class CustomerController extends BaseController
         return view('customer/dashboard', $data);
     }
 
+    public function setting(){
+
+        return "Settings";
+    }
+
+
+    public function orders(){
+
+        return "Orders";
+    }
+
     public function checkout(){
 
         $cart = \Config\Services::cart();
