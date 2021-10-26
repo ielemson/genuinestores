@@ -10,12 +10,21 @@ class OrderController extends BaseController
 {
 
     // PENDING ORDERS
+    public function new()
+    {
+        $orderModel = new Order();
+        $newOrder['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
+        // dd($orders);
+        return view('admin/orders/pending',$newOrder);
+    }
+
+    // PENDING ORDERS
     public function pending()
     {
         $orderModel = new Order();
-        $orders['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
+        $pendingOrder['orders'] = $orderModel->where('status', 1)->orderBy("id", "DESC")->findAll();
         // dd($orders);
-        return view('admin/orders/pending',$orders);
+        return view('admin/orders/pending',$pendingOrder);
     }
 
 
@@ -23,8 +32,8 @@ class OrderController extends BaseController
     public function completed()
     {
         $orderModel = new Order();
-        $orders['orders'] = $orderModel->where('status', 1)->findAll();
-        return view('admin/orders/completed',$orders);
+        $completedOrders['orders'] = $orderModel->where('status', 2)->findAll();
+        return view('admin/orders/completed',$completedOrders);
         // dd($orders);
     }
 
