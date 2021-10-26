@@ -13,18 +13,27 @@ class OrderController extends BaseController
     public function new()
     {
         $orderModel = new Order();
-        $newOrder['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
+        $data['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
         // dd($orders);
-        return view('admin/orders/pending',$newOrder);
+
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+
+        return view('admin/orders/new',$data);
     }
 
     // PENDING ORDERS
     public function pending()
     {
         $orderModel = new Order();
-        $pendingOrder['orders'] = $orderModel->where('status', 1)->orderBy("id", "DESC")->findAll();
-        // dd($orders);
-        return view('admin/orders/pending',$pendingOrder);
+        
+        $data['orders'] = $orderModel->where('status', 1)->orderBy("id", "DESC")->findAll();
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+
+        return view('admin/orders/pending',$data);
     }
 
 
@@ -32,8 +41,11 @@ class OrderController extends BaseController
     public function completed()
     {
         $orderModel = new Order();
-        $completedOrders['orders'] = $orderModel->where('status', 2)->findAll();
-        return view('admin/orders/completed',$completedOrders);
+        $data['orders'] = $orderModel->where('status', 2)->findAll();
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+        return view('admin/orders/completed',$data);
         // dd($orders);
     }
 
@@ -45,6 +57,11 @@ class OrderController extends BaseController
         $data['order'] = $orderModel->where('order_no', $id)->first();
         $data['user'] = $userModel->where('id', $data['order']['user_id'])->first();
         $data['orders'] = $orderModel->where('user_id', $data['user']['id'])->where('status', 0)->findAll();
+
+        // order array
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
         // dd($data);
        return view('admin/orders/approve',$data);
         
@@ -64,10 +81,15 @@ class OrderController extends BaseController
         $orderModel->where('user_id', $id)->where('status',0)->set('status', 1)->update();
         }
 
-        $getArr['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
-        $getArr['success'] = 1;
+        $data['orders'] = $orderModel->where('status', 0)->orderBy("id", "DESC")->findAll();
+        $data['success'] = 1;
+
+        // order array
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
         // dd($data);
-       return view('admin/orders/pending',$getArr);
+       return view('admin/orders/pending',$data);
         
     }
 }

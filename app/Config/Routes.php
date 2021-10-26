@@ -90,6 +90,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->get('slider/delete/(:num)', 'SliderController::destroy/$1');
 
 	// ORDERS
+	$routes->get('orders/new','OrderController::new');
 	$routes->get('orders/pending','OrderController::pending');
 	$routes->get('orders/completed','OrderController::completed');
 	$routes->get('orders/approve/(:any)','OrderController::approve/$1');

@@ -10,7 +10,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Pending Orders</h4>
+                    <h4 class="card-title">New Orders</h4>
                     <div class="row grid-margin">
                       <!-- <div class="col-12">
                         <div class="alert alert-warning" role="alert">
@@ -45,7 +45,7 @@
                                   <td><?=$order['qty']?></td>
                                   <td><?=date('d/m/y', strtotime($order['created_at']))?></td>
                                   <td>
-                                    <label class="badge badge-danger">Pending</label>
+                                    <label class="badge badge-info">New</label>
                                   </td>
                                   <td class="text-right">
                                     <a href="<?=base_url('admin/orders/approve/'.$order['order_no'])?>" class="btn btn-light">
@@ -63,7 +63,7 @@
                       </div>
                     <?php }else { echo '<div class="col-12">
                         <div class="alert alert-warning" role="alert">
-                            <strong>Heads up!</strong> No Pending Orders
+                            <strong>Heads up!</strong> No New Orders
                         </div>
                       </div>';} ?>
 
