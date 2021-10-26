@@ -41,30 +41,6 @@ class ProductController extends BaseController
         $productModel = new Product();
         $data['products'] = $productModel->where('status', 1)->findAll();
 
-    //     $data['products'] = $productModel->select('*')
-    // ->join('images','prod_id = products.id')
-    // ->get();
-
-    // dd($data);
-    // $database = \Config\Database::connect();
-    // $db = $database->table('users');
-
-
-    // $builder = $database->table('products');
-    // $builder->select('*');
-    // $builder->join('images', 'images.prod_id = products.id');
-    //  $data['products'] = $builder->get()->getResult();
-
-    //  dd($query);
-    // print_r($data);
-        // return view('admin/product/products',$data);
-
-
-
-//   $builder = $this->db->table("products as product");
-//   $builder->select('product.*, image.name as img_name');
-//   $builder->join('images as image', 'product.id = image.prod_id');
-//   $data['products']= $builder->get()->getResultArray();
      return view('admin/product/products',$data);
 
         
@@ -73,9 +49,9 @@ class ProductController extends BaseController
     public function storeProduct()
     {
         
-        $model = new Product();
+        $productModel = new Product();
 
-        if ($this->request->getMethod() === 'post' && $this->validate([
+        if($this->request->getMethod() === 'post' && $this->validate([
 
         'name' => 'required|min_length[3]|max_length[255]',
         'price' => 'required|min_length[3]|max_length[255]',
@@ -85,7 +61,7 @@ class ProductController extends BaseController
         
         ])) {
 
-        $model->save([
+        $productModel->save([
         'name' => $this->request->getPost('name'),
         'price' => $this->request->getPost('price'),
         // 'image' => $this->request->getPost('image'),
@@ -100,7 +76,7 @@ class ProductController extends BaseController
         } else {
 
         // return redirect()->to(base_url('dashboard/product/create'))->with('error', "Error Creating Product");
-        return redirect()->back()->withInput()->with('errors', $users->errors());
+        return redirect()->back()->withInput()->with('errors', $productModel->errors());
         }
     
     

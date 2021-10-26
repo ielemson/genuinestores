@@ -14,7 +14,7 @@ class Users extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['firstname','lastname','email','city','country','gender','password','address','role'];
+    protected $allowedFields        = ['firstname','lastname','email','city','country','gender','password','address','role','phone'];
 
     // Dates
     protected $useTimestamps        = true;
@@ -37,6 +37,7 @@ class Users extends Model
 			'address' 				=> 'required|min_length[5]',
 			'gender' 				=> 'required|alpha_space|min_length[2]',
 			'email' 			=> 'required|valid_email|is_unique[users.email,id,{id}]',
+			'phone' 			=> 'required|is_unique[users.phone,id,{id}]',
 			'password'			=> 'required|min_length[5]',
 			'password_confirm'	=> 'matches[password]'
 		],

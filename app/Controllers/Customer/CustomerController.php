@@ -43,11 +43,13 @@ class CustomerController extends BaseController
 
         $cart = \Config\Services::cart();
         $cart_content  = $cart->contents();
-        // dd($cart_content);
-        $order_no = mt_rand(0,123456);
+       
     
     foreach($cart->contents() as $order){
 
+         // dd($cart_content);
+         $order_no = mt_rand(0,123456);
+         
         $orderModel =  new Order();
 
     $orderArr = [

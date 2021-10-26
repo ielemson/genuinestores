@@ -18,7 +18,7 @@ class CartController extends BaseController
         $cart = \Config\Services::cart();
         $cart_data = [];  
 
-        $quantity = 1;
+        // $quantity = 1;
 
         $data['product'] = $productModel->where('id', $id)->first();
 

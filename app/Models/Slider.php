@@ -14,7 +14,7 @@ class Slider extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['slider1', 'slider2'];
+    protected $allowedFields        = ['slider'];
 
     // Dates
     protected $useTimestamps        = false;

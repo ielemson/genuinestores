@@ -87,10 +87,16 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	// SLIDER ROUTES
 	$routes->get('slider/create', 'SliderController::index');
 	$routes->post('slider/store', 'SliderController::store');
+	$routes->get('slider/delete/(:num)', 'SliderController::destroy/$1');
+
+	// ORDERS
+	$routes->get('orders/pending','OrderController::pending');
+	$routes->get('orders/completed','OrderController::completed');
+	$routes->get('orders/approve/(:any)','OrderController::approve/$1');
+	$routes->get('orders/approval/(:any)','OrderController::approval/$1');
 
 	
   });
-
 
 
 
@@ -129,16 +135,6 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 
 
 
-
-// * --------------------------------------------------------------------
-// * ADMIN ROUTING STARTS HERE
-// * --------------------------------------------------------------------
-
-
-
-// * --------------------------------------------------------------------
-// * ADMIN ROUTING ENDS HERE
-// * --------------------------------------------------------------------
 
 /*
  * --------------------------------------------------------------------

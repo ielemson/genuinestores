@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\Category;
 use Config\Services;
 class HomeController extends BaseController
@@ -17,8 +18,6 @@ class HomeController extends BaseController
         $this->session = Services::session();
     }
 
-
-
     public function index()
 	{
 		$data = [
@@ -26,15 +25,14 @@ class HomeController extends BaseController
             'user' => $this->session->user
 		];
 
-     
-
             // $productModel = new Product();
-
             // $data['products'] = $productModel->where('status', 1)->findAll();
 
             $categoryModel = new Category();
+            $sliderModel = new Slider();
             // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
             $data['categories'] = $categoryModel->where('status', 1)->findAll();
+            $data['sliders'] = $sliderModel->findAll();
 
             $builder = $this->db->table("products as product");
             $builder->select('product.*, category.name as cat_name');

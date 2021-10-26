@@ -140,13 +140,14 @@
               
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">APPS</span><i class="menu-arrow"></i></a>
+              <a href="#" class="nav-link"><i class="link-icon mdi mdi-asterisk"></i><span class="menu-title">Orders</span><i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                  <li class="nav-item"><a class="nav-link" href="pages/apps/email.html">Email</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/apps/calendar.html">Calendar</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url('admin/orders/pending')?>">New <span class="badge badge-primary">0</span></a> </li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url('admin/orders/completed')?>">Pending  <span class="badge badge-primary">0</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?=base_url('admin/orders/completed')?>">Completed  <span class="badge badge-primary">0</span></a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="pages/apps/todo.html">Todo List</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/apps/gallery.html">Gallery</a></li> -->
                 </ul>
               </div>
             </li>

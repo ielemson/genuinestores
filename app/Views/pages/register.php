@@ -20,12 +20,21 @@
 						<label>Last name</label>
 					  	<input type="text" class="form-control" name="lastname" value="<?= old('lastname') ?>" required>
 					</div> <!-- form-group end.// -->
+				</div> 
+				<!-- form-row end.// -->
+
+				<div class="form-row">
+					<div class="col form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" name="email" value="<?= old('email') ?>" required>
+					</div> <!-- form-group end.// -->
+					<div class="col form-group">
+						<label>Phone</label>
+					  	<input type="text" class="form-control" name="phone" value="<?= old('phone') ?>" required>
+					</div> <!-- form-group end.// -->
 				</div> <!-- form-row end.// -->
-				<div class="form-group">
-					<label>Email</label>
-					<input type="email" class="form-control" name="email" value="<?= old('email') ?>" required>
-					<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-				</div> <!-- form-group end.// -->
+				
+				<!-- form-group end.// -->
 				<div class="form-group">
 					<label class="custom-control custom-radio custom-control-inline">
 					  <input class="custom-control-input" checked="" type="radio" name="gender" value="male" >

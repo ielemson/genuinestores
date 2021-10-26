@@ -12,7 +12,7 @@ class ProductController extends BaseController
 {
     public function product($slug=null)
     {
-        print_r(current_url());
+        // print_r(current_url());
         $data = [
 			'title'=>':: Product'
 		];
