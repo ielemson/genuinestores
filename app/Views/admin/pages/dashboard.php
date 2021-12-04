@@ -10,7 +10,7 @@
                               <div class="wrapper text-center text-sm-left">
                                 <p class="card-text mb-0">New Users</p>
                                 <div class="fluid-container">
-                                  <h3 class="card-title mb-0">65,650</h3>
+                                  <h3 class="card-title mb-0"><?= $users?></h3>
                                 </div>
                               </div>
                             </div>
@@ -21,9 +21,9 @@
                             <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
                               <i class="mdi mdi-checkbox-marked-circle-outline text-primary mr-0 mr-sm-4 icon-lg"></i>
                               <div class="wrapper text-center text-sm-left">
-                                <p class="card-text mb-0">New Feedbacks</p>
+                                <p class="card-text mb-0">Total Orders</p>
                                 <div class="fluid-container">
-                                  <h3 class="card-title mb-0">32,604</h3>
+                                  <h3 class="card-title mb-0"><?=$orders?></h3>
                                 </div>
                               </div>
                             </div>
@@ -34,9 +34,9 @@
                             <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
                               <i class="mdi mdi-trophy-outline text-primary mr-0 mr-sm-4 icon-lg"></i>
                               <div class="wrapper text-center text-sm-left">
-                                <p class="card-text mb-0">Employees</p>
+                                <p class="card-text mb-0">Completed Ordes</p>
                                 <div class="fluid-container">
-                                  <h3 class="card-title mb-0">17,583</h3>
+                                  <h3 class="card-title mb-0"><?=$completed_orders?></h3>
                                 </div>
                               </div>
                             </div>
@@ -47,9 +47,9 @@
                             <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
                               <i class="mdi mdi-target text-primary mr-0 mr-sm-4 icon-lg"></i>
                               <div class="wrapper text-center text-sm-left">
-                                <p class="card-text mb-0">Total Sales</p>
+                                <p class="card-text mb-0">Pending Orders</p>
                                 <div class="fluid-container">
-                                  <h3 class="card-title mb-0">61,119</h3>
+                                  <h3 class="card-title mb-0"><?=$pending_orders?></h3>
                                 </div>
                               </div>
                             </div>
@@ -63,23 +63,23 @@
                 <div class="col-md-4 col-sm-6 grid-margin stretch-card">
                   <div class="card text-center">
                     <div class="card-body">
-                      <img src="images/faces/face5.jpg" class="img-lg rounded-circle mb-2" alt="profile image"/>
-                      <h4>Maria Johnson</h4>
-                      <p class="text-muted">Developer</p>
+                      <img src="/images/avatars/icon-admin.png" class="img-lg rounded-circle mb-2" alt="profile image"/>
+                      <h4><?= $_SESSION['firstname']?> <?= $_SESSION['lastname']?> </h4>
+                      <p class="text-muted"><?= $_SESSION['role']?></p>
                       <p class="mt-4 card-text">
                           Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                           Aenean commodo ligula eget dolor. Lorem
                       </p>
-                      <button class="btn btn-primary btn-sm mt-3 mb-4">Follow</button>
+                      <button class="btn btn-primary btn-sm mt-3 mb-4">Edit Profile</button>
                       <div class="border-top pt-3">
                         <div class="row">
                           <div class="col-4">
                             <h6>5896</h6>
-                            <p>Post</p>
+                            <p>Sales</p>
                           </div>
                           <div class="col-4">
                             <h6>1596</h6>
-                            <p>Followers</p>
+                            <p>Products</p>
                           </div>
                           <div class="col-4">
                             <h6>7896</h6>
@@ -113,11 +113,11 @@
                       <div class="w-75 mx-auto">
                         <div class="d-flex justify-content-between text-center mb-2">
                           <div class="wrapper">
-                            <h4>6,256</h4>
+                            <h4>0</h4>
                             <small class="text-muted">Total sales</small>
                           </div>
                           <div class="wrapper">
-                            <h4>8569</h4>
+                            <h4>0</h4>
                             <small class="text-muted">Open Campaign</small>
                           </div>
                         </div>
@@ -126,11 +126,11 @@
                       <div class="w-75 mx-auto">
                         <div class="d-flex justify-content-between text-center mt-5">
                           <div class="wrapper">
-                            <h4>5136</h4>
+                            <h4>0</h4>
                             <small class="text-muted">Online Sales</small>
                           </div>
                           <div class="wrapper">
-                            <h4>4596</h4>
+                            <h4>0</h4>
                             <small class="text-muted">Store Sales</small>
                           </div>
                         </div>
@@ -198,56 +198,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">The Current Chart</h5>
-                      <canvas id="current-chart" height="100"></canvas>
-                    </div>
-                    <div class="border-top py-4 px-4">
-                      <p class="mb-0 text-gray">Projects Status</p>
-                      <div class="d-flex align-items-end">
-                        <h2 class="mb-0 display-2 font-weight-semibold">76,533</h2>
-                        <p class="mb-2 ml-1">PCS</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Updates</h5>
-                      <ul class="bullet-line-list">
-                        <li>
-                          <h6>User confirmation</h6>
-                          <p class="mb-0">Donec rutrum congue leo eget malesuada.</p>
-                          <p class="text-muted">
-                            <i class="mdi mdi-clock"></i>
-                            7 months ago.
-                          </p>
-                        </li>
-                        <li>
-                          <h6>Continuous evaluation</h6>
-                          <p class="mb-0">Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-                          <p class="text-muted">
-                            <i class="mdi mdi-clock"></i>
-                            7 months ago.
-                          </p>
-                        </li>
-                        <li>
-                          <h6>Promotion</h6>
-                          <p class="mb-0">Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-                          <p class="text-muted">
-                            <i class="mdi mdi-clock"></i>
-                            7 months ago.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
               <div class="row">
                 <div class="col-12 grid-margin">
                   <div class="card">

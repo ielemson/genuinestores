@@ -136,7 +136,7 @@
               
             </li>
             <li class="nav-item mega-menu">
-              <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">USERS</span><i class="menu-arrow"></i></a>
+              <a href="<?=base_url('admin/users')?>"class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">USERS</span><i class="menu-arrow"></i></a>
               
             </li>
             <li class="nav-item">

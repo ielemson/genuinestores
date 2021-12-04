@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Category;
+use App\Models\Order;
 
 class CategoryController extends BaseController
 {
@@ -19,7 +20,14 @@ class CategoryController extends BaseController
     
     public function createCategory()
     {
-        return view('admin/category/create');
+        $orderModel = new Order();
+
+         // order array
+         $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+         $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+         $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+
+        return view('admin/category/create',$data);
     }
 
     
@@ -28,9 +36,14 @@ class CategoryController extends BaseController
     {
 
         $categoryModel = new Category();
+        $orderModel = new Order();
         // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
-        
+         // order array
+         $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+         $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+         $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+
         return view('admin/category/categories',$data);
     }
 
@@ -66,7 +79,13 @@ class CategoryController extends BaseController
     public function edit($id=null){
 
         $categoryModel = new Category();
+        $orderModel = new Order();
         $data['category'] = $categoryModel->where('id', $id)->first();
+
+         // order array
+         $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+         $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+         $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
         return view('admin/category/category',$data);
     }
 }

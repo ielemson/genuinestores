@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\ProductImage;
 class ProductController extends BaseController
 {
@@ -29,8 +30,14 @@ class ProductController extends BaseController
     public function createProduct()
     {
         $categoryModel = new Category();
+        $orderModel = new Order();
         // $data['categories'] = $categoryModel->orderBy('id', 'DESC')->findAll();
         $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+          // order array
+          $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+          $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+          $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
         
         return view('admin/product/create',$data);
     }

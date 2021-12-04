@@ -4,6 +4,8 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Slider;
+use App\Models\Category;
+use App\Models\Order;
 
 class SliderController extends BaseController
 {
@@ -19,6 +21,17 @@ class SliderController extends BaseController
      public function index()
     {
         $sliderModel = new Slider();
+
+        $categoryModel = new Category();
+        $orderModel = new Order();
+
+        $data['categories'] = $categoryModel->where('status', 1)->findAll();
+
+        // order array
+        $data['new_orders'] = $orderModel->where('status', 0)->countAllResults();
+        $data['pending_orders'] = $orderModel->where('status', 1)->countAllResults();
+        $data['completed_orders'] = $orderModel->where('status', 2)->countAllResults();
+
 
         $data['sliders'] = $sliderModel->findAll();
 

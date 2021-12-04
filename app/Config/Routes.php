@@ -96,7 +96,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->get('orders/approve/(:any)','OrderController::approve/$1');
 	$routes->get('orders/approval/(:any)','OrderController::approval/$1');
 
-	
+	// USERS
+	$routes->get('users','UserController::index');
   });
 
 

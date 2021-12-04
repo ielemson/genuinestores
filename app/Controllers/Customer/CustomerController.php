@@ -5,6 +5,8 @@ namespace App\Controllers\Customer;
 use App\Controllers\BaseController;
 use Config\Services;
 use App\Models\Order;
+use App\Models\Users;
+
 class CustomerController extends BaseController
 {
     public function __construct()
@@ -30,13 +32,23 @@ class CustomerController extends BaseController
 
     public function setting(){
 
-        return "Settings";
+        $orderModel = new Order();
+        $userModel = new Users();
+        $data['user'] = $userModel->where('id', $this->session->id)->first();
+        $data['orders'] = $orderModel->where('user_id', $this->session->id)->findAll();
+        return view('customer/setting',$data);
     }
 
 
     public function orders(){
 
-        return "Orders";
+        $orderModel = new Order();
+        $data['orders'] = $orderModel->where('user_id', $this->session->id)->findAll();
+        $userModel = new Users();
+        $data['user'] = $userModel->where('id', $this->session->id)->first();
+        // $data['user'] =$this->session->id;
+        // dd($data);
+        return view('customer/order', $data);
     }
 
     public function checkout(){
