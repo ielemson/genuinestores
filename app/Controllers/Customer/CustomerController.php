@@ -13,11 +13,6 @@ class CustomerController extends BaseController
     {
         // start session
 		$this->session = Services::session();
-
-        // if (session()->get('role') != "customer") {
-        //     echo 'Access denied';
-        //     exit;
-        // }
     }
 
 

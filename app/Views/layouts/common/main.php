@@ -63,8 +63,6 @@
 <!-- ========================= SECTION CUSTOM JS STARTS ========================= -->
 <?= $this->renderSection('customJS'); ?>
 <!-- ========================= SECTION CUSTOM JS END// ========================= -->
-
-
 </body>
 
 </html>

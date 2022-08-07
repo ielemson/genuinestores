@@ -40,13 +40,13 @@ $routes->get('/contact', 'HomeController::contact');
 
 
 
-
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 	// Registration
 	$routes->get('register', 'Auth\AuthController::getRegister',['as'=>'register']);
 	$routes->get('reset-password', 'Auth\AuthController::resetPassword');
 	$routes->get('forgot-password', 'Auth\AuthController::forgotPassword');
     $routes->post('create-account', 'Auth\AuthController::attemptRegister');
+    $routes->get('send', 'Auth\AuthController::send');
 
 	// Activation
 	// $routes->get('activate-account', 'Auth\RegistrationController::activateAccount', ['as' => 'activate-account']);
@@ -59,9 +59,6 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
     $routes->post('login', 'Auth\AuthController::attemptLogin');
 	// $routes->post('login', 'Auth\LoginController::attemptLogin');
     $routes->get('logout', 'Auth\AuthController::logout');
-
-
-
 
 });
 
@@ -101,7 +98,6 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
   });
 
 
-
 // GENEAL WEB CONTROLLER
   $routes->group('', ['namespace' => 'App\Controllers\Web'], function($routes) {
 
@@ -123,7 +119,6 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
   });
 
 
-
 //   CUSTOMER DASHBOARD CONTROLLER
   $routes->group('customer', ['namespace' => 'App\Controllers\Customer',"filter" => "auth"], function($routes) {
 
@@ -132,10 +127,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin',"filter" => "aut
 	$routes->get('setting', 'CustomerController::setting');
 	$routes->get('orders', 'CustomerController::orders');
 
-	
   });
-
-
 
 
 /*

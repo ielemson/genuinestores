@@ -43,14 +43,14 @@ if ($products) {?>
 <?php }}else {?>
 
     <div class="card card-inverse-info">
-                      <div class="card-body">
-                        <p class="mb-4">
-                         You currently have no active product
-                        </p>
-                        <a href="<?=base_url('admin/category/create')?>" class="btn btn-primary">Create Category</a>
-                        <a href="<?=base_url('admin/product/create')?>" class="btn btn-info">Create Product</a>
-                      </div>
-                    </div>
+	<div class="card-body">
+	<p class="mb-4">
+		You currently have no active product
+	</p>
+	<a href="<?=base_url('admin/category/create')?>" class="btn btn-primary">Create Category</a>
+	<a href="<?=base_url('admin/product/create')?>" class="btn btn-info">Create Product</a>
+	</div>
+</div>
 
 <?php }?>
 </div>

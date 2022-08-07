@@ -198,7 +198,7 @@ class AuthController extends BaseController
 
                     $model = new Users();
     
-                    $user = $model->where('email', $this->request->getVar('email'))
+                    $user = $model->where(['email' => $this->request->getVar('email'),'status'=>1])
                         ->first();
 
                         if ( is_null($user) || ! password_verify($this->request->getPost('password'), $user['password']) ) 
@@ -272,18 +272,12 @@ class AuthController extends BaseController
     // * --------------------------------------------------------------------
 
 
-
-
-  
-
-
     // * --------------------------------------------------------------------
     // * LOGOUT MODEL STARTS HERE
     // * --------------------------------------------------------------------
 
     public function logout()
 	{
-	
         session()->destroy();
         // return redirect()->to('login');
         return redirect()->to(base_url('login'));
@@ -291,4 +285,66 @@ class AuthController extends BaseController
       // * --------------------------------------------------------------------
     // * LOGOUT MODEL ENDS HERE
     // * --------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+    // * --------------------------------------------------------------------
+    // * LOGOUT MODEL STARTS HERE
+    // * --------------------------------------------------------------------
+
+     function send() { 
+        // $to = $this->request->getVar('mail_to');
+        // $subject = $this->request->getVar('subject');
+        // $message = $this->request->getVar('message');
+        
+        // $email = \Config\Services::email();
+
+        // $email->setTo($to);
+        // $email->setFrom('ielemson@gmail.com', 'Do you confirm?');
+        
+        // $email->setSubject($subject);
+        // $email->setMessage($message);
+
+        // if ($email->send()) 
+		// {
+        //     echo 'Email has been sent';
+        // } 
+		// else 
+		// {
+        //     $data = $email->printDebugger(['headers']);
+        //     print_r($data);
+        // }
+
+        $data = [
+            'u_link'=>'localhost:8000',
+            'u_email'=>'ielemson@gmail.com',
+            ];
+
+        $message = "Please activate the account ".anchor('user/activate/'.$data['u_link'],'Activate Now','');
+        $email = \Config\Services::email();
+        $email->setFrom('support@genuinestore.com.ng', 'your Title Here');
+        $email->setTo($data['u_email']);
+        $email->setSubject('Your Subject here | tutsmake.com');
+        $email->setMessage($message);//your message here
+      
+        $email->setCC('support@genuinestore.com.ng');//CC
+        $email->setBCC('support@genuinestore.com.ng');// and BCC
+        $filename = '/img/yourPhoto.jpg'; //you can use the App patch 
+        $email->attach($filename);
+         
+        $email->send();
+        $email->printDebugger(['headers']);
+    }
+      // * --------------------------------------------------------------------
+    // * LOGOUT MODEL ENDS HERE
+    // * --------------------------------------------------------------------
+
+
+
 }
